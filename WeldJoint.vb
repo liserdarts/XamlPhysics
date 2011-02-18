@@ -3,9 +3,15 @@
 'you may not use this file except in compliance with the License.
 'You may obtain a copy of the license at http://xamlphysics.codeplex.com/license
 
+''' <summary>
+''' Constrain all relative motion between two bodies
+''' </summary>
 Public Class WeldJoint
     Inherits DoubleJoint
     
+    ''' <summary>
+    ''' Gets the joint object from the Farseer Physics Engine
+    ''' </summary>
     Public Shadows Property Joint() As FarseerPhysics.Dynamics.Joints.WeldJoint
         Get
             Return MyBase.Joint

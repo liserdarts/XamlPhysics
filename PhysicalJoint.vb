@@ -3,6 +3,9 @@
 'you may not use this file except in compliance with the License.
 'You may obtain a copy of the license at http://xamlphysics.codeplex.com/license
 
+''' <summary>
+''' The base class for all joints
+''' </summary>
 Public MustInherit Class PhysicalJoint
     Inherits FrameworkElement
     
@@ -15,17 +18,16 @@ Public MustInherit Class PhysicalJoint
         RaiseEvent Broke(Me, EventArgs.Empty)
     End Sub
     
-    Dim LBox As PhysicalBox
+    ''' <summary>
+    ''' The PhysicalBox this joint is in
+    ''' </summary>
     Public Property Box() As PhysicalBox
-        Get
-            Return LBox
-        End Get
-        Set
-            LBox = Value
-        End Set
-    End Property
 
     Public Shared BodyProperty As DependencyProperty
+    ''' <summary>
+    ''' Gets or Sets the body this joint is attached to
+    ''' </summary>
+    ''' <remarks>This can't be changed after the simulation is started.</remarks>
     Public Property Body() As UIElement
         Get
             Return GetValue(BodyProperty)
@@ -35,47 +37,20 @@ Public MustInherit Class PhysicalJoint
         End Set
     End Property
     
-    Dim LSoftness As Double
-    Public Property Softness() As Double
-        Get
-            Return LSoftness
-        End Get
-        Set
-            LSoftness = Value
-        End Set
-    End Property
-    
-    Dim LLinearBreakpoint As Double = Single.MaxValue
-    Public Property LinearBreakpoint() As Double
-        Get
-            Return LLinearBreakpoint
-        End Get
-        Set
-            LLinearBreakpoint = Value
-        End Set
-    End Property
+    ''' <summary>
+    ''' Gets or sets the linear breakpoint.
+    ''' </summary>
+    Public Property LinearBreakpoint() As Double = Single.MaxValue
 
-    Dim LTorqueBreakpoint As Double = Single.MaxValue
-    Public Property TorqueBreakpoint() As Double
-        Get
-            Return LTorqueBreakpoint
-        End Get
-        Set
-            LTorqueBreakpoint = Value
-        End Set
-    End Property
-    
-    Dim LBiasFactor As Double = 0.2
-    Public Property BiasFactor() As Double
-        Get
-            Return LBiasFactor
-        End Get
-        Set
-            LBiasFactor = Value
-        End Set
-    End Property
+    ''' <summary>
+    ''' Gets or sets the torque breakpoint.
+    ''' </summary>
+    Public Property TorqueBreakpoint() As Double = Single.MaxValue
     
     Dim WithEvents LJoint As FarseerPhysics.Dynamics.Joints.Joint
+    ''' <summary>
+    ''' Gets the joint object from the Farseer Physics Engine
+    ''' </summary>
     Public Property Joint() As FarseerPhysics.Dynamics.Joints.Joint
         Get
             Return LJoint
@@ -86,6 +61,10 @@ Public MustInherit Class PhysicalJoint
     End Property
 
     Dim LEnabled As Boolean = True
+    ''' <summary>
+    ''' Gets or sets a value indicating whether this <see cref="PhysicalJoint" /> is enabled.
+    ''' </summary>
+    ''' <value><c>True</c> if enabled; otherwise, <c>False</c>.</value>
     Public Property Enabled() As Boolean
         Get
             Return LEnabled
@@ -97,6 +76,9 @@ Public MustInherit Class PhysicalJoint
         End Set
     End Property
     
+    ''' <summary>
+    ''' Creates the joint object
+    ''' </summary>
     Public Overridable Sub Initialize()
         CreateJoint
         SetProperties
@@ -109,6 +91,10 @@ Public MustInherit Class PhysicalJoint
         Joint.Enabled = Enabled
     End Sub
 
+    ''' <summary>
+    ''' Calculates if the joint should brak or not
+    ''' </summary>
+    ''' <param name="Interval">The time passed sense the last update.</param>
     Public Overridable Sub Update(Interval As TimeSpan)
         If Not Enabled Then Return
 

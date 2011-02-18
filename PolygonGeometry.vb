@@ -3,18 +3,17 @@
 'you may not use this file except in compliance with the License.
 'You may obtain a copy of the license at http://xamlphysics.codeplex.com/license
 
+''' <summary>
+''' Creates a <c>PolygonShape</c> for the Farseer Physics Engine
+''' </summary>
 Public Class PolygonGeometry
     Inherits PhysicalGeometry
     
-    Dim LPoints As New PointCollection
+    ''' <summary>
+    ''' The points of the shape. If none are given and the body is a <c>PolygonBody</c> they will be added automatically.
+    ''' </summary>
+    ''' <remarks>This can't be changed after the simulation is started.</remarks>
     Public Property Points() As PointCollection
-        Get
-            Return LPoints
-        End Get
-        Set
-            LPoints = Value
-        End Set
-    End Property
     
     Protected Overrides Sub CreateGeom(Body As PhysicalBody)
         If TypeOf Body Is PolygonBody Then

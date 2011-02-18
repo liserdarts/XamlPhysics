@@ -3,6 +3,9 @@
 'you may not use this file except in compliance with the License.
 'You may obtain a copy of the license at http://xamlphysics.codeplex.com/license
 
+''' <summary>
+''' The container of a physics simulation
+''' </summary>
 Public Class PhysicalBox
     Inherits Canvas
     
@@ -27,13 +30,23 @@ Public Class PhysicalBox
         FarseerPhysics.Settings.PositionIterations = 8
     End Sub
     
-    Public World As FarseerPhysics.Dynamics.World
-    Public PixelsInAMeter As Double = 350
+    ''' <summary>
+    ''' The world object from the Farseer Physics Engine.
+    ''' </summary>
+    Public Property World As FarseerPhysics.Dynamics.World
+
+    ''' <summary>
+    ''' Gets or sets the amount of pixels in A meter.
+    ''' </summary>
+    Public Property PixelsInAMeter As Double = 350
 
     Dim Bodies As List(Of PhysicalBody)
     Dim Elements As New Dictionary(Of Object, UIElement)
     Dim Joints As List(Of PhysicalJoint)
     
+    ''' <summary>
+    ''' Recalculates the position and rotation of each body in the simulation.
+    ''' </summary>
     Public Sub Update(Interval As TimeSpan)
         If Bodies Is Nothing Then Return
         
@@ -45,6 +58,10 @@ Public Class PhysicalBox
             Body.Update(Interval)
         Next
     End Sub
+
+    ''' <summary>
+    ''' Moves each body to its calculated location.
+    ''' </summary>
     Public Sub UpdateUI(Interval As TimeSpan)
         If Bodies Is Nothing Then 'Find all children with a PhysicalBody
             Bodies = New List(Of PhysicalBody)
@@ -104,23 +121,40 @@ Public Class PhysicalBox
         Next
     End Sub
     
-    
+    ''' <summary>
+    ''' Converts a measurement in pixels to meters
+    ''' </summary>
     Public Function PixelToMeter(X As Single) As Single
         Return X / PixelsInAMeter
     End Function
+    ''' <summary>
+    ''' Converts a point in pixels to meters
+    ''' </summary>
     Public Function PointToMeter(X As Single, Y As Single) As Microsoft.Xna.Framework.Vector2
         Return New Microsoft.Xna.Framework.Vector2(X / PixelsInAMeter, Y / PixelsInAMeter)
     End Function
+    ''' <summary>
+    ''' Converts a point in pixels to meters
+    ''' </summary>
     Public Function PointToMeter(Point As Point) As Microsoft.Xna.Framework.Vector2
         Return New Microsoft.Xna.Framework.Vector2(Point.X / PixelsInAMeter, Point.Y / PixelsInAMeter)
     End Function
-    
+
+    ''' <summary>
+    ''' Converts a measurement in meters to pixels
+    ''' </summary>
     Public Function MeterToPixel(X As Single) As Double
         Return X * PixelsInAMeter
     End Function
+    ''' <summary>
+    ''' Converts a point in meters to pixels
+    ''' </summary>
     Public Function MeterToPoint(X As Single, Y As Single) As Point
         Return New Point(X * PixelsInAMeter, Y * PixelsInAMeter)
     End Function
+    ''' <summary>
+    ''' Converts a point in meters to pixels
+    ''' </summary>
     Public Function MeterToPoint(Meter As Microsoft.Xna.Framework.Vector2) As Point
         Return New Point(Meter.X * PixelsInAMeter, Meter.Y * PixelsInAMeter)
     End Function

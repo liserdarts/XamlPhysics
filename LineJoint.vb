@@ -3,9 +3,16 @@
 'you may not use this file except in compliance with the License.
 'You may obtain a copy of the license at http://xamlphysics.codeplex.com/license
 
+''' <summary>
+''' A line joint provides two degrees of freedom: translation
+''' along an axis fixed in body1 and rotation in the plane.
+''' </summary>
 Public Class LineJoint
     Inherits DoubleJoint
     
+    ''' <summary>
+    ''' The inner joint object from the Farseer Physics Engine
+    ''' </summary>
     Public Shadows Property Joint() As FarseerPhysics.Dynamics.Joints.LineJoint
         Get
             Return MyBase.Joint

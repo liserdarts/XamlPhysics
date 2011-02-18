@@ -16,9 +16,9 @@ Public Class CollideEventArgs
         Me.Manifold = Manifold
     End Sub
     
-    Public FixtureA As FarseerPhysics.Dynamics.Fixture
-    Public FixtureB As FarseerPhysics.Dynamics.Fixture
-    Public Manifold As FarseerPhysics.Dynamics.Contacts.Contact
+    Public Property FixtureA As FarseerPhysics.Dynamics.Fixture
+    Public Property FixtureB As FarseerPhysics.Dynamics.Fixture
+    Public Property Manifold As FarseerPhysics.Dynamics.Contacts.Contact
 
-    Public Cancel As Boolean
+    Public Property Cancel As Boolean
 End Class

@@ -3,18 +3,17 @@
 'you may not use this file except in compliance with the License.
 'You may obtain a copy of the license at http://xamlphysics.codeplex.com/license
 
+''' <summary>
+''' A <c>PhysicalBody</c> that will create a <c>PolygonGeometry</c> if no geometry is given
+''' </summary>
 Public Class PolygonBody
     Inherits PhysicalBody
     
-    Dim LPoints As New PointCollection
-    Public Property Points() As PointCollection
-        Get
-            Return LPoints
-        End Get
-        Set
-            LPoints = Value
-        End Set
-    End Property
+    ''' <summary>
+    ''' Gets or sets the points for the geometry. If none are given and this is placed in a <c>Polygon</c> the points will be added automatically.
+    ''' </summary>
+    ''' <remarks>This can't be changed after the simulation is started.</remarks>
+    Public Property Points() As New PointCollection
     
     Protected Overrides Sub CreatePhysicalObject(Element As System.Windows.UIElement)
         If TypeOf Element Is Polygon Then

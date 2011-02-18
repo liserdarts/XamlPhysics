@@ -9,48 +9,53 @@ Public Class PhysicalBody
         GeometriesProperty = DependencyProperty.Register("Geometries", GetType(GeometryCollection), GetType(PhysicalBody), New PropertyMetadata(Nothing))
     End Sub
 
-    Dim LIsStatic As Boolean
+    ''' <summary>
+    ''' Gets or sets a value indicating whether this body is static. This can't be changed after the simulation is started.
+    ''' </summary>
     Public Property IsStatic() As Boolean
-        Get
-            Return LIsStatic
-        End Get
-        Set
-            LIsStatic = Value
-        End Set
-    End Property
 
-    Dim LMass As Double = 1
-    Public Property Mass() As Double
-        Get
-            Return LMass
-        End Get
-        Set
-            LMass = Value
-        End Set
-    End Property
+    ''' <summary>
+    ''' Gets or sets the mass. Usually in kilograms (kg). This can't be changed after the simulation is started.
+    ''' </summary>
+    Public Property Mass() As Double = 1
 
-    Dim LIgnoreGravity As Boolean
+    ''' <summary>
+    ''' Gets or sets a value indicating whether this body ignores gravity. This can't be changed after the simulation is started.
+    ''' </summary>
     Public Property IgnoreGravity() As Boolean
-        Get
-            Return LIgnoreGravity
-        End Get
-        Set
-            LIgnoreGravity = Value
-        End Set
-    End Property
 
     Public Shared GeometriesProperty As DependencyProperty
     Dim LGeometries As New GeometryCollection
+    ''' <summary>
+    ''' Gets the GeometryCollection that holds the geometries of this body
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     Public ReadOnly Property Geometries() As GeometryCollection
         Get
             Return LGeometries
         End Get
     End Property
     
-    Public Box As PhysicalBox
-    Public Body As FarseerPhysics.Dynamics.Body
-    Public Rotate As New RotateTransform
+    ''' <summary>
+    ''' The <c>PhysicalBox</c> this body is in
+    ''' </summary>
+    Public Property Box As PhysicalBox
+
+    ''' <summary>
+    ''' The <c>Body</c> object from the Farseer Physics Engine
+    ''' </summary>
+    Public Property Body As FarseerPhysics.Dynamics.Body
+
+    ''' <summary>
+    ''' The <c>RotateTransform</c> used to rotate the <c>UIElement</c>
+    ''' </summary>
+    Public Property Rotate As New RotateTransform
     
+    ''' <summary>
+    ''' Creates all the objects for the Farseer Physics Engine, and sets their properties
+    ''' </summary>
     Public Sub Initialize(Element As UIElement)
         CreatePhysicalObject(Element)
         SetBodyProperties
@@ -83,12 +88,18 @@ Public Class PhysicalBody
     
     Dim Position As Point
     Dim Angle As Double
+    ''' <summary>
+    ''' Calculates a new position and rotation for this body
+    ''' </summary>
     Public Overridable Sub Update()
         If IsStatic Then Return
         Position = Box.MeterToPoint(Body.Position)
         Angle = Body.Rotation * 57.29578
     End Sub
 
+    ''' <summary>
+    ''' Moves the <c>UIElement</c> to the calculated position and rotation
+    ''' </summary>
     Public Overridable Sub UpdateUI(Element As UIElement)
         If IsStatic Then Return
         Canvas.SetLeft(Element, Position.X - Rotate.CenterX)
