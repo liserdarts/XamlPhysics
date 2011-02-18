@@ -3,28 +3,21 @@
 'you may not use this file except in compliance with the License.
 'You may obtain a copy of the license at http://xamlphysics.codeplex.com/license
 
+''' <summary>
+''' A <c>PhysicalBody</c> that will create a <c>RectangleGeometry</c> if no geometry is given
+''' </summary>
 Public Class RectangleBody
     Inherits PhysicalBody
     
-    Dim LWidth As Double
+    ''' <summary>
+    ''' Gets or sets the width. If none is given the width will be calculated automatically.
+    ''' </summary>
     Public Property Width() As Double
-        Get
-            Return LWidth
-        End Get
-        Set
-            LWidth = Value
-        End Set
-    End Property
-
-    Dim LHeight As Double
+    
+    ''' <summary>
+    ''' Gets or sets the height. If none is given the height will be calculated automatically.
+    ''' </summary>
     Public Property Height() As Double
-        Get
-            Return LHeight
-        End Get
-        Set
-            LHeight = Value
-        End Set
-    End Property
     
     Protected Overrides Sub CreatePhysicalObject(Element As System.Windows.UIElement)
         If TypeOf Element Is FrameworkElement Then

@@ -3,28 +3,23 @@
 'you may not use this file except in compliance with the License.
 'You may obtain a copy of the license at http://xamlphysics.codeplex.com/license
 
+''' <summary>
+''' PhysicalBody that will create an ElipseGeometry if none is provided
+''' </summary>
 Public Class EllipseBody
     Inherits PhysicalBody
     
-    Dim LWidth As Double
+    ''' <summary>
+    ''' The width of the ellipse, if not provided the parent objects width will be used
+    ''' </summary>
+    ''' <remarks>This can't be changed after the simulation is started</remarks>
     Public Property Width() As Double
-        Get
-            Return LWidth
-        End Get
-        Set
-            LWidth = Value
-        End Set
-    End Property
 
-    Dim LHeight As Double
+    ''' <summary>
+    ''' The height of the ellipse, if not provided the parent objects width will be used
+    ''' </summary>
+    ''' <remarks>This can't be changed after the simulation is started</remarks>
     Public Property Height() As Double
-        Get
-            Return LHeight
-        End Get
-        Set
-            LHeight = Value
-        End Set
-    End Property
     
     Protected Overrides Sub CreatePhysicalObject(Element As UIElement)
         If TypeOf Element Is FrameworkElement Then

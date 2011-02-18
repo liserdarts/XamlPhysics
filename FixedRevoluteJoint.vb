@@ -3,9 +3,16 @@
 'you may not use this file except in compliance with the License.
 'You may obtain a copy of the license at http://xamlphysics.codeplex.com/license
 
+''' <summary>
+''' A revolute joint rains a body to share a common point with the word while it
+''' is free to rotate about the point.
+''' </summary>
 Public Class FixedRevoluteJoint
     Inherits PhysicalJoint
-    
+
+    ''' <summary>
+    ''' The inner joint object from the Farseer Physics Engine
+    ''' </summary>
     Public Shadows Property Joint() As FarseerPhysics.Dynamics.Joints.FixedRevoluteJoint
         Get
             Return MyBase.Joint

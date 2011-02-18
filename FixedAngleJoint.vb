@@ -3,29 +3,25 @@
 'you may not use this file except in compliance with the License.
 'You may obtain a copy of the license at http://xamlphysics.codeplex.com/license
 
+''' <summary>
+''' Maintains a fixed angle on one body
+''' </summary>
 Public Class FixedAngleJoint
     Inherits PhysicalJoint
     
-    Dim LTargetAngle As Double
+    ''' <summary>
+    ''' The angle to maintain, this can't be changed after the simulation is started
+    ''' </summary>
     Public Property TargetAngle() As Double
-        Get
-            Return LTargetAngle
-        End Get
-        Set
-            LTargetAngle = Value
-        End Set
-    End Property
     
-    Dim LMaxImpulse As Double = Single.MaxValue
-    Public Property MaxImpulse() As Double
-        Get
-            Return LMaxImpulse
-        End Get
-        Set
-            LMaxImpulse = Value
-        End Set
-    End Property
-     
+    ''' <summary>
+    ''' The maximum impulse to use to achieve the target angle, this can't be changed after the simulation is started
+    ''' </summary>
+    Public Property MaxImpulse() As Double = Single.MaxValue
+    
+    ''' <summary>
+    ''' The inner joint object from the Farseer Physics Engine
+    ''' </summary> 
     Public Shadows Property Joint() As FarseerPhysics.Dynamics.Joints.FixedAngleJoint
         Get
             Return MyBase.Joint

@@ -3,9 +3,17 @@
 'you may not use this file except in compliance with the License.
 'You may obtain a copy of the license at http://xamlphysics.codeplex.com/license
 
+''' <summary>
+''' A revolute joint rains two bodies to share a common point while they
+''' are free to rotate about the point. The relative rotation about the shared
+''' point is the joint angle.
+''' </summary>
 Public Class RevoluteJoint
     Inherits DoubleJoint
     
+    ''' <summary>
+    ''' Gets the joint object from the Farseer Physics Engine
+    ''' </summary>
     Public Shadows Property Joint() As FarseerPhysics.Dynamics.Joints.RevoluteJoint
         Get
             Return MyBase.Joint

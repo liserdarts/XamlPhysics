@@ -3,48 +3,35 @@
 'you may not use this file except in compliance with the License.
 'You may obtain a copy of the license at http://xamlphysics.codeplex.com/license
 
+''' <summary>
+''' Creates a <c>PolygonShape</c> for the Farseer Physics Engine
+''' </summary>
 Public Class RectangleGeometry
     Inherits PhysicalGeometry
     
-    Dim LLeft As Double
+    ''' <summary>
+    ''' Gets or sets the left.
+    ''' </summary>
+    ''' <remarks>This can't be changed after the simulation is started.</remarks>
     Public Property Left() As Double
-        Get
-            Return LLeft
-        End Get
-        Set
-            LLeft = Value
-        End Set
-    End Property
 
-    Dim LTop As Double
+    ''' <summary>
+    ''' Gets or sets the top.
+    ''' </summary>
+    ''' <remarks>This can't be changed after the simulation is started.</remarks>
     Public Property Top() As Double
-        Get
-            Return LTop
-        End Get
-        Set
-            LTop = Value
-        End Set
-    End Property
 
-    Dim LWidth As Double
+    ''' <summary>
+    ''' Gets or sets the width. If none is given and the body is a <c>RectangleBody</c> it will be added automatically.
+    ''' </summary>
+    ''' <remarks>This can't be changed after the simulation is started.</remarks>
     Public Property Width() As Double
-        Get
-            Return LWidth
-        End Get
-        Set
-            LWidth = Value
-        End Set
-    End Property
 
-    Dim LHeight As Double
+    ''' <summary>
+    ''' Gets or sets the height. If none is given and the body is a <c>RectangleBody</c> it will be added automatically.
+    ''' </summary>
+    ''' <remarks>This can't be changed after the simulation is started.</remarks>
     Public Property Height() As Double
-        Get
-            Return LHeight
-        End Get
-        Set
-            LHeight = Value
-        End Set
-    End Property
     
     Protected Overrides Sub CreateGeom(Body As PhysicalBody)
         If TypeOf Body Is RectangleBody Then

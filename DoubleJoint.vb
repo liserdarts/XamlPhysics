@@ -3,6 +3,10 @@
 'you may not use this file except in compliance with the License.
 'You may obtain a copy of the license at http://xamlphysics.codeplex.com/license
 
+''' <summary>
+''' The base class for joints that attach to 2 bodies
+''' </summary>
+''' <remarks></remarks>
 Public MustInherit Class DoubleJoint
     Inherits PhysicalJoint
     
@@ -11,6 +15,10 @@ Public MustInherit Class DoubleJoint
     End Sub
     
     Public Shared Body2Property As DependencyProperty
+    ''' <summary>
+    ''' Gets or Sets the second body this joint is attached to
+    ''' </summary>
+    ''' <remarks>This can't be changed after the simulation is started.</remarks>
     Public Property Body2() As UIElement
         Get
             Return GetValue(Body2Property)

@@ -3,38 +3,26 @@
 'you may not use this file except in compliance with the License.
 'You may obtain a copy of the license at http://xamlphysics.codeplex.com/license
 
+''' <summary>
+''' Creates a polygon in the shape of an ellipse using the given number of edges
+''' </summary>
 Public Class ElipseGeometry
     Inherits PhysicalGeometry
     
-    Dim LWidth As Double
+    ''' <summary>
+    ''' The width of the ellipse, this can't be changed after the simulation is started
+    ''' </summary>
     Public Property Width() As Double
-        Get
-            Return LWidth
-        End Get
-        Set
-            LWidth = Value
-        End Set
-    End Property
 
-    Dim LHeight As Double
+    ''' <summary>
+    ''' The height of the ellipse, this can't be changed after the simulation is started
+    ''' </summary>
     Public Property Height() As Double
-        Get
-            Return LHeight
-        End Get
-        Set
-            LHeight = Value
-        End Set
-    End Property
 
-    Dim LNumberOfEdges As Integer = 20
-    Public Property NumberOfEdges() As Integer
-        Get
-            Return LNumberOfEdges
-        End Get
-        Set
-            LNumberOfEdges = Value
-        End Set
-    End Property
+    ''' <summary>
+    ''' The number of edges to create the ellipse, this can't be changed after the simulation is started
+    ''' </summary>
+    Public Property NumberOfEdges() As Integer = 20
     
     Protected Overrides Sub CreateGeom(Body As PhysicalBody)
         If TypeOf Body Is EllipseBody Then
