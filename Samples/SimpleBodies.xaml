@@ -5,8 +5,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:physics="clr-namespace:XamlPhysics;assembly=XamlPhysics">
 
-    <physics:PhysicalBox x:Name="UxBox">
-
+    <Canvas>
         <Rectangle Canvas.Left="80" Canvas.Top="40" Width="100" Height="100" Fill="DarkRed">
             <physics:PhysicalBox.Body>
                 <physics:RectangleBody />
@@ -37,5 +36,5 @@
                 <physics:RectangleBody IsStatic="True" />
             </physics:PhysicalBox.Body>
         </Rectangle>
-    </physics:PhysicalBox>
+    </Canvas>
 </UserControl>
