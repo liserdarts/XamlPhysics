@@ -7,11 +7,7 @@
     mc:Ignorable="d"
     d:DesignHeight="768" d:DesignWidth="1024">
 
-    <physics:PhysicalBox x:Name="UxBox" Width="1024" Height="798">
-        <physics:PhysicalBox.Clip>
-            <RectangleGeometry Rect="0, 0, 1024, 768"/>
-        </physics:PhysicalBox.Clip>
-
+    <Canvas>
         <Rectangle x:Name="UxBox1" Canvas.Left="380" Canvas.Top="40" Width="100" Height="100" Fill="DarkRed">
             <physics:PhysicalBox.Body>
                 <physics:RectangleBody />
@@ -30,5 +26,5 @@
                 <physics:RectangleBody IsStatic="True" />
             </physics:PhysicalBox.Body>
         </Rectangle>
-    </physics:PhysicalBox>
+    </Canvas>
 </UserControl>
