@@ -103,6 +103,9 @@
     <Import Include="System.Windows.Shapes" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AngleJoint.xaml.vb">
+      <DependentUpon>AngleJoint.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.vb">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -129,6 +132,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="AngleJoint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
