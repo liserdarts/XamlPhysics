@@ -30,6 +30,7 @@
         Samples.Add(New SampleInfo(GetType(WeldJoint)))
         Samples.Add(New SampleInfo(GetType(RevoluteJoint)))
         Samples.Add(New SampleInfo(GetType(AngleJoint)))
+        Samples.Add(New SampleInfo(GetType(FixedAngleJoint)))
 
         UxSamples.ItemsSource = Samples
     End Sub
