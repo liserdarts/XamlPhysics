@@ -5,7 +5,7 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "XamlPhysics", "XamlPhysics.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farseer Physics 3.2 Silverlight", "Dependencies\FarseerPhysicsEngine\Farseer Physics 3.2 Silverlight.csproj", "{786DC838-D746-4107-93FF-19A902A78CFC}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "XamlPhysics.Samples", "XamlPhysics.Samples\XamlPhysics.Samples.vbproj", "{5177E1C6-0235-4F0E-8693-7A46BC35118E}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "XamlPhysics.Samples", "Samples\XamlPhysics.Samples.vbproj", "{5177E1C6-0235-4F0E-8693-7A46BC35118E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
