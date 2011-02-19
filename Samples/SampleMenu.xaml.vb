@@ -28,6 +28,7 @@
         Dim Samples As New List(Of SampleInfo)
         Samples.Add(New SampleInfo(GetType(Sample1)))
         Samples.Add(New SampleInfo(GetType(Sample2)))
+        Samples.Add(New SampleInfo(GetType(AngleJoint)))
 
         UxSamples.ItemsSource = Samples
     End Sub
