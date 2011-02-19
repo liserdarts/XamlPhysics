@@ -114,17 +114,17 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
-    <Compile Include="Sample1.xaml.vb">
-      <DependentUpon>Sample1.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Sample2.xaml.vb">
-      <DependentUpon>Sample2.xaml</DependentUpon>
-    </Compile>
     <Compile Include="SampleMenu.xaml.vb">
       <DependentUpon>SampleMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SimpleBodies.xaml.vb">
+      <DependentUpon>SimpleBodies.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Viewer.xaml.vb">
       <DependentUpon>Viewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WeldJoint.xaml.vb">
+      <DependentUpon>WeldJoint.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -140,21 +140,21 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Sample1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Sample2.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="SampleMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="SimpleBodies.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Viewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WeldJoint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
