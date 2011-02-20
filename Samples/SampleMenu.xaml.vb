@@ -29,6 +29,7 @@
         Samples.Add(New SampleInfo(GetType(SimpleBodies)))
         Samples.Add(New SampleInfo(GetType(WeldJoint)))
         Samples.Add(New SampleInfo(GetType(RevoluteJoint)))
+        Samples.Add(New SampleInfo(GetType(FixedRevoluteJoint)))
         Samples.Add(New SampleInfo(GetType(AngleJoint)))
         Samples.Add(New SampleInfo(GetType(FixedAngleJoint)))
 

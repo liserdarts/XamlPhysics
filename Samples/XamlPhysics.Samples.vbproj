@@ -112,6 +112,9 @@
     <Compile Include="FixedAngleJoint.xaml.vb">
       <DependentUpon>FixedAngleJoint.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FixedRevoluteJoint.xaml.vb">
+      <DependentUpon>FixedRevoluteJoint.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GameLoop.vb" />
     <Compile Include="MainPage.xaml.vb">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -143,6 +146,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="FixedAngleJoint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FixedRevoluteJoint.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
