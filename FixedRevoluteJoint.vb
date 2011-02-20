@@ -24,7 +24,9 @@ Public Class FixedRevoluteJoint
     
     Protected Overrides Sub CreateJoint()
         Dim WorldAnchor = Box.PointToMeter(Canvas.GetLeft(Me), Canvas.GetTop(Me))
-        Dim BodyAnchor As New Microsoft.Xna.Framework.Vector2
+        Dim BodyAnchor = PhysicalBox.GetBody(Body).Body.WorldCenter
+
+        BodyAnchor = WorldAnchor - BodyAnchor
 
         Joint = New FarseerPhysics.Dynamics.Joints.FixedRevoluteJoint(PhysicalBox.GetBody(Body).Body, BodyAnchor, WorldAnchor)
     End Sub
