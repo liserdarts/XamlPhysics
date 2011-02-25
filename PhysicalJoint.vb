@@ -82,7 +82,7 @@ Public MustInherit Class PhysicalJoint
     Public Overridable Sub Initialize()
         CreateJoint
         SetProperties
-        If Enabled Then Box.World.AddJoint(Joint)
+        Box.World.AddJoint(Joint)
     End Sub
     
     Protected MustOverride Sub CreateJoint()
