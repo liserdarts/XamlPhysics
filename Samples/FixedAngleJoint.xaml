@@ -12,7 +12,7 @@
             </physics:PhysicalBox.Body>
         </Rectangle>
 
-        <physics:FixedAngleJoint TargetAngle="1.5" Body="{Binding ElementName=UxBox1}" />
+        <physics:FixedAngleJoint TargetAngle="45" Body="{Binding ElementName=UxBox1}" />
 
         <Rectangle Canvas.Left="-100" Canvas.Top="768" Width="1240" Height="10" Fill="Black">
             <physics:PhysicalBox.Body>
