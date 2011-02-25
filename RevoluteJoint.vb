@@ -23,6 +23,24 @@ Public Class RevoluteJoint
         End Set
     End Property
     
+    ''' <summary>
+    ''' Gets or sets a value indicating whether to enable the upper and lower limits.
+    ''' </summary>
+    ''' <value><c>true</c> to enable the upper and lower limits; otherwise, <c>false</c>.</value>
+    Public Property LimitEnabled() As Boolean
+
+    ''' <summary>
+    ''' Gets or sets the upper angle limit.
+    ''' </summary>
+    ''' <value>The upper angle limit.</value>
+    Public Property UpperLimit() As Double
+
+    ''' <summary>
+    ''' Gets or sets the lower angle limit.
+    ''' </summary>
+    ''' <value>The lower angle limit.</value>
+    Public Property LowerLimit() As Double
+
     Protected Overrides Sub CreateJoint()
         Dim BodyA = PhysicalBox.GetBody(Body).Body
         Dim BodyB = PhysicalBox.GetBody(Body2).Body
@@ -32,4 +50,12 @@ Public Class RevoluteJoint
         Joint = FarseerPhysics.Factories.JointFactory.CreateRevoluteJoint(BodyA, BodyB, AnchorB)
     End Sub
     
+    Protected Overrides Sub SetProperties()
+        MyBase.SetProperties
+        
+        Joint.LimitEnabled = LimitEnabled
+        Joint.UpperLimit = UpperLimit / 57.29578
+        Joint.LowerLimit = LowerLimit / 57.29578
+    End Sub
+
 End Class
