@@ -42,9 +42,11 @@ Public Class RectangleGeometry
         
         Dim Vertices = FarseerPhysics.Common.PolygonTools.CreateRectangle(Box.PixelToMeter(Width / 2), Box.PixelToMeter(Height / 2))
 
-        For Each Point In Vertices
-            Point.X = Point.X + Left
-            Point.Y = Point.Y + Top
+        For I As Integer = 0 To Vertices.Count - 1
+            Dim Point = Vertices(I)
+            Point.X = Point.X + Box.PixelToMeter(Left)
+            Point.Y = Point.Y + Box.PixelToMeter(Top)
+            Vertices(I) = Point
         Next
 
         Geom = New FarseerPhysics.Collision.Shapes.PolygonShape(Vertices, 1)
