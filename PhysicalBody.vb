@@ -64,7 +64,7 @@ Public Class PhysicalBody
     
     Protected Overridable Sub CreatePhysicalObject(Element As UIElement)
         Body = New FarseerPhysics.Dynamics.Body(Box.World)
-        Body.Position = New Microsoft.Xna.Framework.Vector2(Canvas.GetLeft(Element), Canvas.GetTop(Element))
+        Body.Position = Box.PointToMeter(Canvas.GetLeft(Element), Canvas.GetTop(Element))
     End Sub
     
     Protected Overridable Sub SetBodyProperties()
