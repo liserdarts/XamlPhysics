@@ -38,7 +38,7 @@ Public Class AngleJoint
     Protected Overrides Sub SetProperties()
         MyBase.SetProperties
         
-        Joint.TargetAngle = TargetAngle * 57.29578
+        Joint.TargetAngle = TargetAngle / 57.29578
         Joint.MaxImpulse = MaxImpulse
     End Sub
     
