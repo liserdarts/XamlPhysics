@@ -33,6 +33,7 @@
         Samples.Add(New SampleInfo(GetType(AngleJoint)))
         Samples.Add(New SampleInfo(GetType(FixedAngleJoint)))
         Samples.Add(New SampleInfo(GetType(LineJoint)))
+        Samples.Add(New SampleInfo(GetType(BreakPoints)))
 
         UxSamples.ItemsSource = Samples
     End Sub
