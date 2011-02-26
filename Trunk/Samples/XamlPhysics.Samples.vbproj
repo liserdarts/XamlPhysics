@@ -111,6 +111,9 @@
     <Compile Include="App.xaml.vb">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Breakpoints.xaml.vb">
+      <DependentUpon>Breakpoints.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FixedAngleJoint.xaml.vb">
       <DependentUpon>FixedAngleJoint.xaml</DependentUpon>
     </Compile>
@@ -147,6 +150,10 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="AngleJoint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Breakpoints.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
