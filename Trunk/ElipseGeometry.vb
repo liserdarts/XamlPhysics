@@ -6,7 +6,7 @@
 ''' <summary>
 ''' Creates a polygon in the shape of an ellipse using the given number of edges
 ''' </summary>
-Public Class ElipseGeometry
+Public Class EllipseGeometry
     Inherits PhysicalGeometry
     
     ''' <summary>

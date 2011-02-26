@@ -4,7 +4,7 @@
 'You may obtain a copy of the license at http://xamlphysics.codeplex.com/license
 
 ''' <summary>
-''' PhysicalBody that will create an ElipseGeometry if none is provided
+''' PhysicalBody that will create an EllipseGeometry if none is provided
 ''' </summary>
 Public Class EllipseBody
     Inherits PhysicalBody
@@ -32,7 +32,7 @@ Public Class EllipseBody
         Body.Position = Box.PointToMeter(Canvas.GetLeft(Element) + Width / 2, Canvas.GetTop(Element) + Height / 2)
         
         If Geometries.Count = 0 Then
-            Geometries.Add(New ElipseGeometry)
+            Geometries.Add(New EllipseGeometry)
         End If
     End Sub
     
