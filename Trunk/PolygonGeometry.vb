@@ -13,7 +13,7 @@ Public Class PolygonGeometry
     ''' The points of the shape. If none are given and the body is a <c>PolygonBody</c> they will be added automatically.
     ''' </summary>
     ''' <remarks>This can't be changed after the simulation is started.</remarks>
-    Public Property Points() As PointCollection
+    Public Property Points() As New PointCollection
     
     Protected Overrides Sub CreateGeom(Body As PhysicalBody)
         If TypeOf Body Is PolygonBody Then
