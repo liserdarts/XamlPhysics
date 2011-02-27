@@ -3,15 +3,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:physics="clr-namespace:XamlPhysics;assembly=XamlPhysics">
+    xmlns:physics="clr-namespace:XamlPhysics;assembly=XamlPhysics"
+    mc:Ignorable="d"
+    d:DesignHeight="768" d:DesignWidth="1024">
 
     <Canvas>
         <Rectangle Canvas.Left="80" Canvas.Top="40" Width="100" Height="100" Fill="DarkRed">
-            <physics:PhysicalBox.Body>
-                <physics:RectangleBody />
-            </physics:PhysicalBox.Body>
-        </Rectangle>
-        <Rectangle Canvas.Left="220" Canvas.Top="90" Width="100" Height="100" Fill="DarkGreen">
             <physics:PhysicalBox.Body>
                 <physics:RectangleBody />
             </physics:PhysicalBox.Body>
@@ -31,6 +28,18 @@
                 <physics:RectangleBody />
             </physics:PhysicalBox.Body>
         </Rectangle>
+
+        <Ellipse Canvas.Left="255" Canvas.Top="48" Width="50" Height="50" Fill="DarkGreen">
+            <physics:PhysicalBox.Body>
+                <physics:CircleBody />
+            </physics:PhysicalBox.Body>
+        </Ellipse>
+        <Ellipse Canvas.Left="292" Canvas.Top="145" Width="50" Height="50" Fill="DarkGoldenrod">
+            <physics:PhysicalBox.Body>
+                <physics:CircleBody />
+            </physics:PhysicalBox.Body>
+        </Ellipse>
+        
         <Rectangle Canvas.Left="-100" Canvas.Top="768" Width="1240" Height="10" Fill="Black">
             <physics:PhysicalBox.Body>
                 <physics:RectangleBody IsStatic="True" />
