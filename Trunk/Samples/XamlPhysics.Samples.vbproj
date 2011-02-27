@@ -120,6 +120,9 @@
     <Compile Include="FixedRevoluteJoint.xaml.vb">
       <DependentUpon>FixedRevoluteJoint.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Friction.xaml.vb">
+      <DependentUpon>Friction.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GameLoop.vb" />
     <Compile Include="LineJoint.xaml.vb">
       <DependentUpon>LineJoint.xaml</DependentUpon>
@@ -168,6 +171,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="FixedRevoluteJoint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Friction.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="XamlPhysics.Samples.Friction"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:physics="clr-namespace:XamlPhysics;assembly=XamlPhysics"
+    mc:Ignorable="d"
+    d:DesignHeight="768" d:DesignWidth="1024">
+
+    <Canvas>
+        <Rectangle Canvas.Left="742" Canvas.Top="482" Width="50" Height="50" Fill="DarkRed">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody>
+                    <physics:RectangleBody.Geometries>
+                        <physics:RectangleGeometry FrictionCoefficient="0.1" />
+                    </physics:RectangleBody.Geometries>
+                </physics:RectangleBody>
+            </physics:PhysicalBox.Body>
+        </Rectangle>
+        <Rectangle Canvas.Left="798" Canvas.Top="468" Width="50" Height="50" Fill="DarkGoldenrod">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody>
+                    <physics:RectangleBody.Geometries>
+                        <physics:RectangleGeometry FrictionCoefficient="0.2" />
+                    </physics:RectangleBody.Geometries>
+                </physics:RectangleBody>
+            </physics:PhysicalBox.Body>
+        </Rectangle>
+        <Rectangle Canvas.Left="854" Canvas.Top="450" Width="50" Height="50" Fill="DarkBlue">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody>
+                    <physics:RectangleBody.Geometries>
+                        <physics:RectangleGeometry FrictionCoefficient="0.3" />
+                    </physics:RectangleBody.Geometries>
+                </physics:RectangleBody>
+            </physics:PhysicalBox.Body>
+        </Rectangle>
+        <Rectangle Canvas.Left="909" Canvas.Top="435" Width="50" Height="50" Fill="DarkGreen">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody>
+                    <physics:RectangleBody.Geometries>
+                        <physics:RectangleGeometry FrictionCoefficient="0.4" />
+                    </physics:RectangleBody.Geometries>
+                </physics:RectangleBody>
+            </physics:PhysicalBox.Body>
+        </Rectangle>
+
+        <Polygon Points="0,300, 1024,0, 1024,300" Canvas.Left="0" Canvas.Top="468" Width="1024" Height="300" Stroke="DarkCyan" Fill="DarkCyan">
+            <physics:PhysicalBox.Body>
+                <physics:PolygonBody />
+            </physics:PhysicalBox.Body>
+        </Polygon>
+        <Rectangle Canvas.Left="-100" Canvas.Top="768" Width="1240" Height="10" Fill="Black">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody IsStatic="True" />
+            </physics:PhysicalBox.Body>
+        </Rectangle>
+    </Canvas>
+</UserControl>
