@@ -11,13 +11,13 @@
                 <physics:RectangleBody />
             </physics:PhysicalBox.Body>
         </Rectangle>
-        <Rectangle x:Name="UxBox2" Canvas.Left="500" Canvas.Top="90" Width="100" Height="100" Fill="DarkGreen">
+        <Rectangle x:Name="UxBox2" Canvas.Left="533" Canvas.Top="90" Width="100" Height="100" Fill="DarkGreen">
             <physics:PhysicalBox.Body>
                 <physics:RectangleBody />
             </physics:PhysicalBox.Body>
         </Rectangle>
 
-        <physics:LineJoint Body="{Binding ElementName=UxBox1}" Body2="{Binding ElementName=UxBox2}" Canvas.Left="321" Canvas.Top="12" />
+        <physics:LineJoint Body="{Binding ElementName=UxBox1}" Body2="{Binding ElementName=UxBox2}" Canvas.Left="430" Canvas.Top="90" />
 
         <Rectangle Canvas.Left="-100" Canvas.Top="768" Width="1240" Height="10" Fill="Black">
             <physics:PhysicalBox.Body>
