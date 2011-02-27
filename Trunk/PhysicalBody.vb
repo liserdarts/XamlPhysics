@@ -15,11 +15,6 @@ Public Class PhysicalBody
     Public Property IsStatic() As Boolean
 
     ''' <summary>
-    ''' Gets or sets the mass. Usually in kilograms (kg). This can't be changed after the simulation is started.
-    ''' </summary>
-    Public Property Mass() As Double = 1
-
-    ''' <summary>
     ''' Gets or sets a value indicating whether this body ignores gravity. This can't be changed after the simulation is started.
     ''' </summary>
     Public Property IgnoreGravity() As Boolean
@@ -68,7 +63,6 @@ Public Class PhysicalBody
     End Sub
     
     Protected Overridable Sub SetBodyProperties()
-        Body.Mass = Mass
         If Not IsStatic Then
             Body.BodyType = FarseerPhysics.Dynamics.BodyType.Dynamic
         End If
