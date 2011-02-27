@@ -35,6 +35,7 @@
         Samples.Add(New SampleInfo(GetType(LineJoint)))
         Samples.Add(New SampleInfo(GetType(BreakPoints)))
         Samples.Add(New SampleInfo(GetType(Polygons)))
+        Samples.Add(New SampleInfo(GetType(Mass)))
 
         UxSamples.ItemsSource = Samples
     End Sub
