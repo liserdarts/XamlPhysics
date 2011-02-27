@@ -25,8 +25,14 @@ Public Class CircleGeometry
     Public Property Position() As Point
 
     Protected Overrides Sub CreateGeom(Body As PhysicalBody)
+        If TypeOf Body Is CircleBody Then
+            Dim CBody As CircleBody = Body
+            If Radius = 0 Then Radius = CBody.Radius
+        End If
+
         Dim Shape = New FarseerPhysics.Collision.Shapes.CircleShape(Box.PixelToMeter(Radius), 1)
         Shape.Position = Box.PointToMeter(Position)
+        
         Geom = Shape
     End Sub
     
