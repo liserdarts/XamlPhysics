@@ -38,6 +38,7 @@
         Samples.Add(New SampleInfo(GetType(Mass)))
         Samples.Add(New SampleInfo(GetType(Friction)))
         Samples.Add(New SampleInfo(GetType(Restitution)))
+        Samples.Add(New SampleInfo(GetType(Controls)))
 
         UxSamples.ItemsSource = Samples
     End Sub
