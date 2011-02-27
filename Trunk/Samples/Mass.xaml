@@ -8,28 +8,149 @@
     d:DesignHeight="768" d:DesignWidth="1024">
 
     <Canvas>
-        <Rectangle x:Name="UxBox1" Canvas.Left="262" Canvas.Top="40" Width="100" Height="100" Fill="DarkRed">
-            <physics:PhysicalBox.Body>
-                <physics:RectangleBody />
-            </physics:PhysicalBox.Body>
-        </Rectangle>
-        <Rectangle x:Name="UxBox2" Canvas.Left="662" Canvas.Top="40" Width="50" Height="45" Fill="DarkGreen">
+        <Rectangle x:Name="UxBox1" Canvas.Left="315" Canvas.Top="548" Width="100" Height="100" Fill="DarkRed">
             <physics:PhysicalBox.Body>
                 <physics:RectangleBody />
             </physics:PhysicalBox.Body>
         </Rectangle>
 
-        <Rectangle Canvas.Left="262" Canvas.Top="656" Width="500" Height="10" Stroke="DarkCyan" Fill="DarkCyan">
+        <Rectangle Canvas.Left="658" Canvas.Top="638" Width="50" Height="20" Fill="DarkGreen">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </Rectangle>
+        <Rectangle Canvas.Left="658" Canvas.Top="600" Width="50" Height="20" Fill="DarkGreen">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </Rectangle>
+        <Rectangle Canvas.Left="658" Canvas.Top="538" Width="50" Height="20" Fill="DarkGreen">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </Rectangle>
+        <Rectangle Canvas.Left="658" Canvas.Top="500" Width="50" Height="20" Fill="DarkGreen">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </Rectangle>
+        <Rectangle Canvas.Left="658" Canvas.Top="438" Width="50" Height="20" Fill="DarkGreen">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </Rectangle>
+        <Rectangle Canvas.Left="658" Canvas.Top="400" Width="50" Height="20" Fill="DarkGreen">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </Rectangle>
+        <Rectangle Canvas.Left="658" Canvas.Top="338" Width="50" Height="20" Fill="DarkGreen">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </Rectangle>
+        <Rectangle Canvas.Left="658" Canvas.Top="300" Width="50" Height="20" Fill="DarkGreen">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </Rectangle>
+        <Rectangle Canvas.Left="658" Canvas.Top="238" Width="50" Height="20" Fill="DarkGreen">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </Rectangle>
+        <Rectangle Canvas.Left="658" Canvas.Top="200" Width="50" Height="20" Fill="DarkGreen">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </Rectangle>
+        <Rectangle Canvas.Left="658" Canvas.Top="138" Width="50" Height="20" Fill="DarkGreen">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </Rectangle>
+        <Rectangle Canvas.Left="658" Canvas.Top="100" Width="50" Height="20" Fill="DarkGreen">
             <physics:PhysicalBox.Body>
                 <physics:RectangleBody />
             </physics:PhysicalBox.Body>
         </Rectangle>
 
-        <Rectangle Canvas.Left="507" Canvas.Top="668" Width="10" Height="100" Fill="Black">
+        <Rectangle Canvas.Left="558" Canvas.Top="638" Width="50" Height="20" Fill="DarkGreen">
             <physics:PhysicalBox.Body>
-                <physics:RectangleBody IsStatic="True" />
+                <physics:RectangleBody />
             </physics:PhysicalBox.Body>
         </Rectangle>
+        <Rectangle Canvas.Left="558" Canvas.Top="600" Width="50" Height="20" Fill="DarkGreen">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </Rectangle>
+        <Rectangle Canvas.Left="558" Canvas.Top="538" Width="50" Height="20" Fill="DarkGreen">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </Rectangle>
+        <Rectangle Canvas.Left="558" Canvas.Top="500" Width="50" Height="20" Fill="DarkGreen">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </Rectangle>
+        <Rectangle Canvas.Left="558" Canvas.Top="438" Width="50" Height="20" Fill="DarkGreen">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </Rectangle>
+        <Rectangle Canvas.Left="558" Canvas.Top="400" Width="50" Height="20" Fill="DarkGreen">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </Rectangle>
+        <Rectangle Canvas.Left="558" Canvas.Top="338" Width="50" Height="20" Fill="DarkGreen">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </Rectangle>
+        <Rectangle Canvas.Left="558" Canvas.Top="300" Width="50" Height="20" Fill="DarkGreen">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </Rectangle>
+        <Rectangle Canvas.Left="558" Canvas.Top="238" Width="50" Height="20" Fill="DarkGreen">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </Rectangle>
+        <Rectangle Canvas.Left="558" Canvas.Top="200" Width="50" Height="20" Fill="DarkGreen">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </Rectangle>
+        <Rectangle Canvas.Left="558" Canvas.Top="138" Width="50" Height="20" Fill="DarkGreen">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </Rectangle>
+        <Rectangle Canvas.Left="558" Canvas.Top="100" Width="50" Height="20" Fill="DarkGreen">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </Rectangle>
+
+        <Rectangle x:Name="UxPlatform" Canvas.Left="312" Canvas.Top="656" Width="400" Height="10" Stroke="DarkCyan" Fill="DarkCyan">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </Rectangle>
+        <Rectangle x:Name="UxPlatformCenterDevider" Canvas.Left="460" Canvas.Top="586" Width="92" Height="80" Stroke="DarkCyan" Fill="DarkCyan">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </Rectangle>
+        <physics:WeldJoint Body="{Binding ElementName=UxPlatform}" Body2="{Binding ElementName=UxPlatformCenterDevider}" />
+        <physics:FixedRevoluteJoint Body="{Binding ElementName=UxPlatform}" Canvas.Left="507" Canvas.Top="648" Height="1" Width="1" />
+
+        <Rectangle x:Name="UxSupport" Canvas.Left="507" Canvas.Top="668" Width="10" Height="100" Fill="Black" />
+        
         <Rectangle Canvas.Left="-100" Canvas.Top="768" Width="1240" Height="10" Fill="Black">
             <physics:PhysicalBox.Body>
                 <physics:RectangleBody IsStatic="True" />
