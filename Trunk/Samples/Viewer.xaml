@@ -10,8 +10,10 @@
            Title="Viewer Page">
     <Grid x:Name="LayoutRoot">
         <physics:PhysicalBox x:Name="UxBox">
-            <Canvas x:Name="UxSampleContainer">
-            </Canvas>
+            <physics:MouseDrag Width="1024" Height="768" Background="#00FFFFFF">
+                <Canvas x:Name="UxSampleContainer">
+                </Canvas>
+            </physics:MouseDrag>
         </physics:PhysicalBox>
     </Grid>
 </navigation:Page>
