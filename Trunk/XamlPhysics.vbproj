@@ -95,6 +95,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AngleJoint.vb" />
+    <Compile Include="CircleBody.vb" />
     <Compile Include="CircleGeometry.vb" />
     <Compile Include="CollideEventArgs.vb" />
     <Compile Include="CollisionCategoryList.vb" />
