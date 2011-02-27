@@ -137,6 +137,9 @@
     <Compile Include="Polygons.xaml.vb">
       <DependentUpon>Polygons.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Restitution.xaml.vb">
+      <DependentUpon>Restitution.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RevoluteJoint.xaml.vb">
       <DependentUpon>RevoluteJoint.xaml</DependentUpon>
     </Compile>
@@ -191,6 +194,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Polygons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Restitution.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
