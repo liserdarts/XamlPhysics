@@ -108,7 +108,7 @@
     <Compile Include="GeometryCollection.vb" />
     <Compile Include="LineJoint.vb" />
     <Compile Include="LoopGeomerty.vb" />
-    <Compile Include="MouseTrap.vb" />
+    <Compile Include="MouseDrag.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="PhysicalBody.vb" />
     <Compile Include="PhysicalBox.vb" />
