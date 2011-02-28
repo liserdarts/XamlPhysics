@@ -30,6 +30,12 @@ Public MustInherit Class PhysicalGeometry
     Public Property CollidesWith() As CollisionCategoryCollection
     
     ''' <summary>
+    ''' Gets or sets the density used to calculate the mass based on size. Default is 1.
+    ''' </summary>
+    ''' <value>The density.</value>
+    Public Property Density As Double = 1
+    
+    ''' <summary>
     ''' The <c>PhysicsBox</c> this geometry is in
     ''' </summary>
     Public Property Box As PhysicalBox
@@ -66,6 +72,7 @@ Public MustInherit Class PhysicalGeometry
     Protected MustOverride Sub CreateGeom(Body As PhysicalBody)
     
     Protected Overridable Sub SetGeomProperties(Body As PhysicalBody)
+        Geom.Density = Density
     End Sub
     
 End Class
