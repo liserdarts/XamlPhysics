@@ -15,6 +15,11 @@ Public Class PhysicalBody
     Public Property IsStatic() As Boolean
 
     ''' <summary>
+    ''' Gets or sets the mass. Usually in kilograms (kg). This can't be changed after the simulation is started.
+    ''' </summary>
+    Public Property Mass() As Double
+
+    ''' <summary>
     ''' Gets or sets a value indicating whether this body ignores gravity. This can't be changed after the simulation is started.
     ''' </summary>
     Public Property IgnoreGravity() As Boolean
@@ -87,6 +92,7 @@ Public Class PhysicalBody
     ''' </summary>
     Public Overridable Sub Update()
         If IsStatic Then Return
+        If Mass > 0 Then Body.Mass = Mass
         Position = Box.MeterToPoint(Body.Position)
         Angle = Body.Rotation * 57.29578
     End Sub
