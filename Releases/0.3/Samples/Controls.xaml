@@ -1,0 +1,132 @@
+﻿<UserControl x:Class="XamlPhysics.Samples.Controls"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:physics="clr-namespace:XamlPhysics;assembly=XamlPhysics"
+    mc:Ignorable="d"
+    d:DesignHeight="768" d:DesignWidth="1024">
+
+    <Canvas>
+        <TextBlock Text="TextBlock" Canvas.Left="361" Canvas.Top="179" Width="61" Height="24">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </TextBlock>
+        <TextBox Text="TextBox" Canvas.Left="499" Canvas.Top="209" Height="24" Width="120">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </TextBox>
+        <Button Content="Button" Canvas.Left="276" Canvas.Top="417" Height="24" Width="76">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </Button>
+        <Button Content="Button" Canvas.Left="638" Canvas.Top="422" Height="24" Width="76">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </Button>
+        <Button Content="Button" Canvas.Left="371" Canvas.Top="417" Height="24" Width="76">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </Button>
+        <RadioButton Content="RadioButton" Canvas.Left="499" Canvas.Top="270" Width="100" Height="16">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </RadioButton>
+        <RadioButton Content="RadioButton" Canvas.Left="499" Canvas.Top="248" Width="100" Height="16">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </RadioButton>
+        <RadioButton Content="RadioButton" Canvas.Left="499" Canvas.Top="292" Width="100" Height="16">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </RadioButton>
+        <RadioButton Content="RadioButton" Canvas.Left="499" Canvas.Top="313" Width="100" Height="16">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </RadioButton>
+        <CheckBox Content="CheckBox" Canvas.Left="545" Canvas.Top="425" Width="100" Height="16">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </CheckBox>
+        <ListBox Canvas.Left="361" Canvas.Top="244" Height="100" Width="120">
+            <ListBox.Items>
+                <ListBoxItem>
+                    <TextBlock Text="Item1" />
+                </ListBoxItem>
+                <ListBoxItem>
+                    <TextBlock Text="Item2" />
+                </ListBoxItem>
+                <ListBoxItem>
+                    <TextBlock Text="Item3" />
+                </ListBoxItem>
+                <ListBoxItem>
+                    <TextBlock Text="Item4" />
+                </ListBoxItem>
+            </ListBox.Items>
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </ListBox>
+        <Slider Canvas.Left="371" Canvas.Top="361" Height="24" Width="198">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </Slider>
+        <ProgressBar IsIndeterminate="True" Canvas.Left="361" Canvas.Top="384" Height="17" Width="233">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </ProgressBar>
+        <ComboBox Canvas.Left="361" Canvas.Top="209" Height="23" Width="120">
+            <ComboBox.Items>
+                <ComboBoxItem>
+                    <TextBlock Text="Item1" />
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <TextBlock Text="Item2" />
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <TextBlock Text="Item3" />
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <TextBlock Text="Item4" />
+                </ComboBoxItem>
+            </ComboBox.Items>
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </ComboBox>
+
+        <Image Source="Logo.png" Canvas.Left="205" Canvas.Top="134" Height="98" Stretch="Fill" Width="103">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody />
+            </physics:PhysicalBox.Body>
+        </Image>
+
+        <Rectangle Canvas.Left="-11" Canvas.Top="0" Width="10" Height="768" Fill="Black">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody IsStatic="True" />
+            </physics:PhysicalBox.Body>
+        </Rectangle>
+        <Rectangle Canvas.Left="1024" Canvas.Top="0" Width="10" Height="768" Fill="Black">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody IsStatic="True" />
+            </physics:PhysicalBox.Body>
+        </Rectangle>
+        <Rectangle Canvas.Left="-100" Canvas.Top="768" Width="1240" Height="10" Fill="Black">
+            <physics:PhysicalBox.Body>
+                <physics:RectangleBody IsStatic="True" />
+            </physics:PhysicalBox.Body>
+        </Rectangle>
+    </Canvas>
+</UserControl>
