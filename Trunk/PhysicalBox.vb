@@ -23,11 +23,7 @@ Public Class PhysicalBox
     End Sub
  
     Public Sub New()
-        World = New FarseerPhysics.Dynamics.World(New Microsoft.Xna.Framework.Vector2(0, 1.42))
-        FarseerPhysics.Settings.EnableDiagnostics = False
-        FarseerPhysics.Settings.ContinuousPhysics = False
-        FarseerPhysics.Settings.VelocityIterations = 8
-        FarseerPhysics.Settings.PositionIterations = 8
+        Reset
     End Sub
     
     ''' <summary>
@@ -82,6 +78,22 @@ Public Class PhysicalBox
         Next
     End Sub
     
+    ''' <summary>
+    ''' Erases all data and restarts the simulation
+    ''' </summary>
+    ''' <remarks>Be set any thread calling Update or UpdateUI has been stopped</remarks>
+    Public Sub Reset()
+        World = New FarseerPhysics.Dynamics.World(New Microsoft.Xna.Framework.Vector2(0, 1.42))
+        FarseerPhysics.Settings.EnableDiagnostics = False
+        FarseerPhysics.Settings.ContinuousPhysics = False
+        FarseerPhysics.Settings.VelocityIterations = 8
+        FarseerPhysics.Settings.PositionIterations = 8
+
+        Bodies = Nothing
+        Elements.Clear
+        Joints = Nothing
+    End Sub
+
     Private Sub FindGeometries(Parent As DependencyObject)
         For I As Integer = 0 To VisualTreeHelper.GetChildrenCount(Parent) - 1
             Dim Child As DependencyObject = VisualTreeHelper.GetChild(Parent, I)
