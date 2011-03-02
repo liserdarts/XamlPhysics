@@ -14,7 +14,7 @@
             </Grid.Clip>
             
             <Image Source="Logo.png" Width="99" Height="99" HorizontalAlignment="Left" VerticalAlignment="Top" />
-            <navigation:Frame x:Name="UxSampleViewer" VerticalContentAlignment="Stretch" HorizontalAlignment="Stretch" Source="/SampleMenu.xaml">
+            <navigation:Frame x:Name="UxSampleViewer" VerticalContentAlignment="Stretch" HorizontalAlignment="Stretch" Source="/SampleMenu.xaml" JournalOwnership="OwnsJournal">
                 <navigation:Frame.UriMapper>
                     <uriMapper:UriMapper>
                         <uriMapper:UriMapping Uri="/Samples/{TypeName}" MappedUri="/Viewer.xaml?Sample={TypeName}"/>

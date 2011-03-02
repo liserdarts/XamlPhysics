@@ -6,7 +6,14 @@
     End Sub
     
     Private Sub Application_Startup(ByVal o As Object, ByVal e As StartupEventArgs) Handles Me.Startup
-        Me.RootVisual = New MainPage()
+        Dim Main As New MainPage
+        Me.RootVisual = Main
+        If e.InitParams.ContainsKey("Sample") Then
+            Dim Sample = e.InitParams("Sample")
+            If Not String.IsNullOrEmpty(Sample) Then
+                Main.UxSampleViewer.Navigate(New Uri("/Samples/XamlPhysics.Samples." & Sample, UriKind.Relative))
+            End If
+        End If
     End Sub
     
     Private Sub Application_Exit(ByVal o As Object, ByVal e As EventArgs) Handles Me.Exit
