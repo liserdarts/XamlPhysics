@@ -3,17 +3,28 @@
            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
            xmlns:physics="clr-namespace:XamlPhysics;assembly=XamlPhysics"
            mc:Ignorable="d"
-           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
-           d:DesignWidth="640" d:DesignHeight="480"
+           d:DesignWidth="1024" d:DesignHeight="768"
            Title="Viewer Page">
     <Grid x:Name="LayoutRoot">
         <physics:PhysicalBox x:Name="UxBox">
-            <physics:MouseDrag Width="1024" Height="768" Background="#00FFFFFF">
+            <physics:MouseDrag Width="1024" Height="768">
                 <Canvas x:Name="UxSampleContainer">
                 </Canvas>
             </physics:MouseDrag>
         </physics:PhysicalBox>
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Height="64" Orientation="Horizontal">
+            <Button x:Name="UxPlay" Margin="4">
+                <Image Source="Images/Run.png" />
+            </Button>
+            <Button x:Name="UxPause" Margin="4">
+                <Image Source="Images/Pause.png"  />
+            </Button>
+            <Button x:Name="UxStop" Margin="4">
+                <Image Source="Images/Stop.png"  />
+            </Button>
+        </StackPanel>
     </Grid>
 </navigation:Page>
