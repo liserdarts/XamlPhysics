@@ -5,13 +5,16 @@
         InitializeComponent
     End Sub
 
+    Public Shared AutoPlay As Boolean = True
     Dim WithEvents GameLoop As New GameLoop
 
     Protected Overrides Sub OnNavigatedTo(e As Windows.Navigation.NavigationEventArgs)
         [Stop]
 
         GameLoop.Interval = TimeSpan.FromMilliseconds(20)
-        Play
+        If AutoPlay Then
+            Play
+        End If
 
         MyBase.OnNavigatedTo(e)
     End Sub
