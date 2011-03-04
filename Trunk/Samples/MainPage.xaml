@@ -13,7 +13,7 @@
                 <RectangleGeometry Rect="0, 0, 1024, 768"/>
             </Grid.Clip>
             
-            <Image Source="Logo.png" Width="99" Height="99" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <Image Source="Images/Logo.png" Width="99" Height="99" HorizontalAlignment="Left" VerticalAlignment="Top" />
             <navigation:Frame x:Name="UxSampleViewer" VerticalContentAlignment="Stretch" HorizontalAlignment="Stretch" Source="/SampleMenu.xaml" JournalOwnership="OwnsJournal">
                 <navigation:Frame.UriMapper>
                     <uriMapper:UriMapper>
