@@ -245,12 +245,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Logo.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\Pause.png" />
     <Resource Include="Images\Run.png" />
     <Resource Include="Images\Stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
