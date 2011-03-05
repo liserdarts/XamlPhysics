@@ -35,6 +35,10 @@ Public Class MouseDrag
 
         SelectedBody = PhysicalBox.GetBody(e.OriginalSource)
         If SelectedBody Is Nothing Then Return
+        If SelectedBody.Body Is Nothing Then
+            SelectedBody = Nothing
+            Return
+        End If
         e.Handled = True
         CaptureMouse
         
