@@ -4,7 +4,7 @@
 'You may obtain a copy of the license at http://xamlphysics.codeplex.com/license
 
 ''' <summary>
-''' A revolute joint rains a body to share a common point with the word while it
+''' A fixed revolute joint rains a body to share a common point with the word while it
 ''' is free to rotate about the point.
 ''' </summary>
 Public Class FixedRevoluteJoint

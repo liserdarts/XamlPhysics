@@ -92,7 +92,7 @@ Public MustInherit Class PhysicalJoint
     End Sub
 
     ''' <summary>
-    ''' Calculates if the joint should brak or not
+    ''' Calculates if the joint should break or not
     ''' </summary>
     ''' <param name="Interval">The time passed sense the last update.</param>
     Public Overridable Sub Update(Interval As TimeSpan)
