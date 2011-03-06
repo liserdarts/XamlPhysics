@@ -107,7 +107,7 @@
             </physics:PhysicalBox.Body>
         </ComboBox>
 
-        <Image Source="Logo.png" Canvas.Left="205" Canvas.Top="134" Height="98" Stretch="Fill" Width="103">
+        <Image Source="Images/Logo.png" Canvas.Left="205" Canvas.Top="134" Height="98" Stretch="Fill" Width="103">
             <physics:PhysicalBox.Body>
                 <physics:RectangleBody />
             </physics:PhysicalBox.Body>
