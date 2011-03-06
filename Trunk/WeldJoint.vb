@@ -4,7 +4,7 @@
 'You may obtain a copy of the license at http://xamlphysics.codeplex.com/license
 
 ''' <summary>
-''' Constrain all relative motion between two bodies
+''' Constrains all relative motion between two bodies
 ''' </summary>
 Public Class WeldJoint
     Inherits DoubleJoint
