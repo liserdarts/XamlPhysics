@@ -61,12 +61,8 @@ Public Class PhysicalBox
     Public Sub UpdateUI(Interval As TimeSpan)
         If Bodies Is Nothing Then 'Find all children with a PhysicalBody
             Bodies = New List(Of PhysicalBody)
-            FindGeometries(Me)
-
             Joints = New List(Of PhysicalJoint)
-            FindJoints(Me)
-
-            Update(Interval)
+            FindNewBodies
         End If
 
         For Each Body In Bodies
@@ -81,7 +77,7 @@ Public Class PhysicalBox
     ''' <summary>
     ''' Erases all data and restarts the simulation
     ''' </summary>
-    ''' <remarks>Be set any thread calling Update or UpdateUI has been stopped</remarks>
+    ''' <remarks>Be sure any thread calling Update or UpdateUI has been stopped</remarks>
     Public Sub Reset()
         World = New FarseerPhysics.Dynamics.World(New Microsoft.Xna.Framework.Vector2(0, 1.42))
         FarseerPhysics.Settings.EnableDiagnostics = False
@@ -94,27 +90,41 @@ Public Class PhysicalBox
         Joints = Nothing
     End Sub
 
-    Private Sub FindGeometries(Parent As DependencyObject)
+    ''' <summary>
+    ''' Adds any new bodies to the simulation that were added after it was started
+    ''' </summary>
+    Public Sub FindNewBodies()
+        If Bodies Is Nothing Then Return
+        
+        FindBodies(Me)
+        FindJoints(Me)
+        'Prevent the bodies from being place at the origin for a frame
+        Update(TimeSpan.FromSeconds(1))
+    End Sub
+
+    Private Sub FindBodies(Parent As DependencyObject)
         For I As Integer = 0 To VisualTreeHelper.GetChildrenCount(Parent) - 1
             Dim Child As DependencyObject = VisualTreeHelper.GetChild(Parent, I)
             
             If TypeOf Child Is UIElement Then
                 Dim Body As PhysicalBody = GetBody(Child)
                 If Body IsNot Nothing Then
-                    
-                    Body.Box = Me
-                    Body.Initialize(Child)
-                    
-                    Bodies.Add(Body)
-                    Elements.Add(Body, Child)
-                    For Each Geom In Body.Geometries
-                        Geom.Box = Me
-                        Geom.Initialize(Body)
-                    Next
+                    If Not Bodies.Contains(Body) Then
+                        Bodies.Add(Body)
+                        
+                        Body.Box = Me
+                        Body.Initialize(Child)
+
+                        Elements.Add(Body, Child)
+                        For Each Geom In Body.Geometries
+                            Geom.Box = Me
+                            Geom.Initialize(Body)
+                        Next
+                    End If
                 End If
             End If
             
-            FindGeometries(Child)
+            FindBodies(Child)
         Next
     End Sub
     Private Sub FindJoints(Parent As DependencyObject)
@@ -123,10 +133,12 @@ Public Class PhysicalBox
             
             If TypeOf Child Is PhysicalJoint Then
                 Dim Joint As PhysicalJoint = Child
-                
-                Joint.Box = Me
-                Joint.Initialize
-                joints.Add(Child)
+                If Not Joints.Contains(Joint) Then
+                    Joints.Add(Child)
+
+                    Joint.Box = Me
+                    Joint.Initialize
+                End If
             End If
             
             FindJoints(Child)
