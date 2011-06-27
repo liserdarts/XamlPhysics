@@ -18,7 +18,7 @@ Public MustInherit Class PhysicalGeometry
     Event Separate(Sender As Object, E As CollideEventArgs)
     Protected Overridable Sub OnSeparate(FixtureA As FarseerPhysics.Dynamics.Fixture, FixtureB As FarseerPhysics.Dynamics.Fixture)
         Dim E As New CollideEventArgs(FixtureA, FixtureB)
-        RaiseEvent separate(Me, E)
+        RaiseEvent Separate(Me, E)
     End Sub
 
     Public Property FrictionCoefficient() As Double = 0.2
