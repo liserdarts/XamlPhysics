@@ -29,12 +29,47 @@ Public Class PhysicalBox
     ''' <summary>
     ''' The world object from the Farseer Physics Engine.
     ''' </summary>
-    Public Property World As FarseerPhysics.Dynamics.World
+    Public Property World() As FarseerPhysics.Dynamics.World
+    
+    Dim WithEvents LClock As GameLoop
+    ''' <summary>
+    ''' Gets or sets the clock.
+    ''' </summary>
+    Public Property Clock() As GameLoop
+        Get
+            Return LClock
+        End Get
+        Set
+            LClock = Value
+        End Set
+    End Property
 
     ''' <summary>
     ''' Gets or sets the amount of pixels in A meter.
     ''' </summary>
-    Public Property PixelsInAMeter As Double = 350
+    Public Property PixelsInAMeter() As Double = 350
+
+    
+    Private Sub Clock_Tick(sender As Object, e As GameLoop.TickEventArgs) Handles LClock.Tick
+        World.Step(LClock.Interval.TotalSeconds)
+    End Sub
+
+    Dim UIResetEvent As New System.Threading.ManualResetEvent(False)
+    Private Sub Clock_UITick(sender As Object, e As GameLoop.TickEventArgs) Handles LClock.UITick
+        Update(e.TimeElapsed)
+        
+        UIResetEvent.Reset
+        Dispatcher.BeginInvoke(New Action(AddressOf Clock_UITick))
+        UIResetEvent.WaitOne
+    End Sub
+    Private Sub Clock_UITick()
+        If LClock.IsRunning Then
+            Dim Interval As New TimeSpan(LClock.Interval.Ticks * LClock.UISteps)
+            UpdateUI(Interval)
+        End If
+        UIResetEvent.Set
+    End Sub
+
 
     Dim Bodies As List(Of PhysicalBody)
     Dim Elements As New Dictionary(Of Object, UIElement)

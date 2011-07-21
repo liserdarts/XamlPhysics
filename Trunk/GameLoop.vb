@@ -1,9 +1,5 @@
 ﻿Public Class GameLoop
 
-    ''' <summary>
-    ''' Occurs when this instance has been started at regular intervals.
-    ''' </summary>
-    Public Event Tick As EventHandler(Of TickEventArgs)
     Public Class TickEventArgs
         Inherits EventArgs
         
@@ -13,14 +9,23 @@
         
         Public Property TimeElapsed As TimeSpan
     End Class
+
+    ''' <summary>
+    ''' Occurs at regular intervals when this instance has been started.
+    ''' </summary>
+    Public Event Tick As EventHandler(Of TickEventArgs)
     Protected Overridable Sub OnTick(TimeElapsed As TimeSpan)
         RaiseEvent Tick(Me, New TickEventArgs(TimeElapsed))
     End Sub
-
     ''' <summary>
-    ''' Occurs when there is an exception during a tick.
+    ''' Occurs at regular intervals when this instance has been started.
     ''' </summary>
-    Public Event Exception As EventHandler(Of ExceptionEventArgs)
+    ''' <remarks></remarks>
+    Public Event UITick As EventHandler(Of TickEventArgs)
+    Protected Overridable Sub OnUITick(TimeElapsed As TimeSpan)
+        RaiseEvent UITick(Me, New TickEventArgs(TimeElapsed))
+    End Sub
+
     Public Class ExceptionEventArgs
         Inherits EventArgs
         
@@ -30,6 +35,11 @@
         
         Public Property Exception As Exception
     End Class
+
+    ''' <summary>
+    ''' Occurs when there is an exception during a tick.
+    ''' </summary>
+    Public Event Exception As EventHandler(Of ExceptionEventArgs)
     Protected Overridable Sub OnException(Ex As Exception)
         RaiseEvent Exception(Me, New ExceptionEventArgs(Ex))
     End Sub
@@ -48,9 +58,25 @@
         End Get
         Set
             If Value <= TimeSpan.Zero Then
-                Throw New ArgumentOutOfRangeException("The interval must be greater then 0.")
+                Throw New ArgumentOutOfRangeException("Interval must be greater then 0.")
             End If
             LInterval = Value
+        End Set
+    End Property
+
+    Dim LUISteps As Integer = 1
+    ''' <summary>
+    ''' The amount of ticks before the UI tick
+    ''' </summary>
+    Public Property UISteps() As Integer
+        Get
+            Return LUISteps
+        End Get
+        Set
+            If Value <= 0 Then
+                Throw New ArgumentOutOfRangeException("UISteps must be greater then 0.")
+            End If
+            LUISteps = Value
         End Set
     End Property
     
@@ -85,7 +111,7 @@
     ''' Stops the specified wait.
     ''' </summary>
     ''' <param name="Wait">if set to <c>true</c> will wait for the current tick to finish.</param>
-    Public Sub [Stop](ByVal Wait As Boolean)
+    Public Sub [Stop](Wait As Boolean)
         SyncLock Me
             Active = False
             ResetEvent.Set
@@ -107,7 +133,7 @@
             Do Until Active = False
                 Dim NewTime As Date = Date.Now
             
-                OnTick(NewTime - LastTime)
+                TickLoop(NewTime - LastTime)
                 LastTime = NewTime
             
                 WaitTime = Interval - (Date.Now - LastTime)
@@ -121,5 +147,22 @@
             Diagnostics.Debug.WriteLine(Ex.ToString)
             OnException(Ex)
         End Try
+    End Sub
+
+    Private Sub TickLoop(TimeElapsed As TimeSpan)
+        Static Wait As Integer = 10
+        If Wait > 0 Then
+            Wait = Wait - 1
+            Return
+        End If
+
+        Static UIFrameCount As Integer = 1
+        OnTick(TimeElapsed)
+
+        UIFrameCount = UIFrameCount - 1
+        If UIFrameCount = 0 Then
+            UIFrameCount = UISteps
+            OnUITick(New TimeSpan(TimeElapsed.Ticks * UISteps))
+        End If
     End Sub
 End Class

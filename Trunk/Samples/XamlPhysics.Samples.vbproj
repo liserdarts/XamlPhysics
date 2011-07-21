@@ -128,7 +128,6 @@
     <Compile Include="Friction.xaml.vb">
       <DependentUpon>Friction.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GameLoop.vb" />
     <Compile Include="LineJoint.xaml.vb">
       <DependentUpon>LineJoint.xaml</DependentUpon>
     </Compile>

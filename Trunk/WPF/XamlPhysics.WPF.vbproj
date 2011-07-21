@@ -111,6 +111,9 @@
     <Compile Include="..\FixedRevoluteJoint.vb">
       <Link>FixedRevoluteJoint.vb</Link>
     </Compile>
+    <Compile Include="..\GameLoop.vb">
+      <Link>GameLoop.vb</Link>
+    </Compile>
     <Compile Include="..\GeometryCollection.vb">
       <Link>GeometryCollection.vb</Link>
     </Compile>
