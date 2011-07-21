@@ -75,6 +75,7 @@
             
             If Thread Is Nothing Then
                 Thread = New System.Threading.Thread(AddressOf TickLoop)
+                Thread.IsBackground = True
                 Thread.Start
             End If
         End SyncLock
