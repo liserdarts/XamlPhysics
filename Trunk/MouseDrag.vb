@@ -39,8 +39,6 @@ Public Class MouseDrag
             SelectedBody = Nothing
             Return
         End If
-        e.Handled = True
-        CaptureMouse
         
         Dim MousePoint = e.GetPosition(SelectedBody.Box)
         Joint = New FarseerPhysics.Dynamics.Joints.FixedMouseJoint(SelectedBody.Body, SelectedBody.Box.PointToMeter(MousePoint))
@@ -49,6 +47,9 @@ Public Class MouseDrag
         Joint.Breakpoint = Breakpoint
         Joint.DampingRatio = DampingRatio
         SelectedBody.Box.World.AddJoint(Joint)
+        
+        e.Handled = True
+        CaptureMouse
     End Sub
 
     Private Sub MouseTrap_MouseLeftButtonUp(sender As Object, e As Windows.Input.MouseButtonEventArgs) Handles Me.MouseLeftButtonUp
