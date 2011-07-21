@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="Viewer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:physics="clr-namespace:XamlPhysics.WPF;assembly=XamlPhysics.WPF"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+
+        <physics:PhysicalBox x:Name="UxBox">
+            <physics:PhysicalBox.Clock>
+                <physics:GameLoop />
+            </physics:PhysicalBox.Clock>
+            <physics:MouseDrag Width="1024" Height="768">
+                <Canvas x:Name="UxSampleContainer">
+                </Canvas>
+            </physics:MouseDrag>
+        </physics:PhysicalBox>
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Height="64" Orientation="Horizontal">
+            <Button x:Name="UxPlay" Margin="4">
+                <Image Source="Images/Run.png" />
+            </Button>
+            <Button x:Name="UxPause" Margin="4">
+                <Image Source="Images/Pause.png"  />
+            </Button>
+            <Button x:Name="UxStop" Margin="4">
+                <Image Source="Images/Stop.png"  />
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>
