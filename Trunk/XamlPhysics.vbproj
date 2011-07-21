@@ -110,6 +110,7 @@
     <Compile Include="LoopGeomerty.vb" />
     <Compile Include="MouseDrag.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Version.vb" />
     <Compile Include="PhysicalBody.vb" />
     <Compile Include="PhysicalBox.vb" />
     <Compile Include="PhysicalGeometry.vb" />
