@@ -1,0 +1,172 @@
+<html>
+<head>
+    <title>XamlPhysics - Controls</title>
+    <script src="CodeMirror/js/highlight.js" type="text/javascript"></script>
+    <script src="CodeMirror/js/stringstream.js" type="text/javascript"></script>
+    <script src="CodeMirror/js/tokenize.js" type="text/javascript"></script>
+    <script src="CodeMirror/js/parsexml.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="CodeMirror/css/xmlcolors.css"/>
+</head>
+<body>
+    <h1>Controls</h1>
+    <p>
+        Because this is all in XAML, anything can me used in a physics simulation.
+        This demo shows common Silverlight controls used in a  physics simulation.
+    </p>
+    <div id="silverlightControlHost">
+        <object data="data:application/x-silverlight-2," height="300" 
+            type="application/x-silverlight-2" width="400">
+            <param name="source" value="XamlPhysics.Samples.xap" />
+            <param name="background" value="white" />
+            <param name="minRuntimeVersion" value="4.0.50826.0" />
+            <param name="autoUpgrade" value="true" />
+            <param name="InitParams" value="Sample=Controls" />
+    <a href="http://go.microsoft.com/fwlink/?LinkID=149156&v=4.0.50826.0" style="text-decoration:none">
+ 			      <img src="http://go.microsoft.com/fwlink/?LinkId=161376" alt="Get Microsoft Silverlight" style="border-style:none"/>
+		      </a>
+	        </object>
+        <iframe id="_sl_historyFrame" 
+            style="visibility:hidden;height:0px;width:0px;border:0px"></iframe>
+    </div>
+
+    <textarea id="Code1" cols="120" rows="15">
+<TextBlock Text="TextBlock" Canvas.Left="361" Canvas.Top="179" Width="61" Height="24">
+    <physics:PhysicalBox.Body>
+        <physics:RectangleBody />
+    </physics:PhysicalBox.Body>
+</TextBlock>
+<TextBox Text="TextBox" Canvas.Left="499" Canvas.Top="209" Height="24" Width="120">
+    <physics:PhysicalBox.Body>
+        <physics:RectangleBody />
+    </physics:PhysicalBox.Body>
+</TextBox>
+<Button Content="Button" Canvas.Left="276" Canvas.Top="417" Height="24" Width="76">
+    <physics:PhysicalBox.Body>
+        <physics:RectangleBody />
+    </physics:PhysicalBox.Body>
+</Button>
+<Button Content="Button" Canvas.Left="638" Canvas.Top="422" Height="24" Width="76">
+    <physics:PhysicalBox.Body>
+        <physics:RectangleBody />
+    </physics:PhysicalBox.Body>
+</Button>
+<Button Content="Button" Canvas.Left="371" Canvas.Top="417" Height="24" Width="76">
+    <physics:PhysicalBox.Body>
+        <physics:RectangleBody />
+    </physics:PhysicalBox.Body>
+</Button>
+<RadioButton Content="RadioButton" Canvas.Left="499" Canvas.Top="270" Width="100" Height="16">
+    <physics:PhysicalBox.Body>
+        <physics:RectangleBody />
+    </physics:PhysicalBox.Body>
+</RadioButton>
+<RadioButton Content="RadioButton" Canvas.Left="499" Canvas.Top="248" Width="100" Height="16">
+    <physics:PhysicalBox.Body>
+        <physics:RectangleBody />
+    </physics:PhysicalBox.Body>
+</RadioButton>
+<RadioButton Content="RadioButton" Canvas.Left="499" Canvas.Top="292" Width="100" Height="16">
+    <physics:PhysicalBox.Body>
+        <physics:RectangleBody />
+    </physics:PhysicalBox.Body>
+</RadioButton>
+<RadioButton Content="RadioButton" Canvas.Left="499" Canvas.Top="313" Width="100" Height="16">
+    <physics:PhysicalBox.Body>
+        <physics:RectangleBody />
+    </physics:PhysicalBox.Body>
+</RadioButton>
+<CheckBox Content="CheckBox" Canvas.Left="545" Canvas.Top="425" Width="100" Height="16">
+    <physics:PhysicalBox.Body>
+        <physics:RectangleBody />
+    </physics:PhysicalBox.Body>
+</CheckBox>
+<ListBox Canvas.Left="361" Canvas.Top="244" Height="100" Width="120">
+    <ListBox.Items>
+        <ListBoxItem>
+            <TextBlock Text="Item1" />
+        </ListBoxItem>
+        <ListBoxItem>
+            <TextBlock Text="Item2" />
+        </ListBoxItem>
+        <ListBoxItem>
+            <TextBlock Text="Item3" />
+        </ListBoxItem>
+        <ListBoxItem>
+            <TextBlock Text="Item4" />
+        </ListBoxItem>
+    </ListBox.Items>
+    <physics:PhysicalBox.Body>
+        <physics:RectangleBody />
+    </physics:PhysicalBox.Body>
+</ListBox>
+<Slider Canvas.Left="371" Canvas.Top="361" Height="24" Width="198">
+    <physics:PhysicalBox.Body>
+        <physics:RectangleBody />
+    </physics:PhysicalBox.Body>
+</Slider>
+<ProgressBar IsIndeterminate="True" Canvas.Left="361" Canvas.Top="384" Height="17" Width="233">
+    <physics:PhysicalBox.Body>
+        <physics:RectangleBody />
+    </physics:PhysicalBox.Body>
+</ProgressBar>
+<ComboBox Canvas.Left="361" Canvas.Top="209" Height="23" Width="120">
+    <ComboBox.Items>
+        <ComboBoxItem>
+            <TextBlock Text="Item1" />
+        </ComboBoxItem>
+        <ComboBoxItem>
+            <TextBlock Text="Item2" />
+        </ComboBoxItem>
+        <ComboBoxItem>
+            <TextBlock Text="Item3" />
+        </ComboBoxItem>
+        <ComboBoxItem>
+            <TextBlock Text="Item4" />
+        </ComboBoxItem>
+    </ComboBox.Items>
+    <physics:PhysicalBox.Body>
+        <physics:RectangleBody />
+    </physics:PhysicalBox.Body>
+</ComboBox>
+
+<Image Source="Images/Logo.png" Canvas.Left="205" Canvas.Top="134" Height="98" Stretch="Fill" Width="103">
+    <physics:PhysicalBox.Body>
+        <physics:RectangleBody />
+    </physics:PhysicalBox.Body>
+</Image>
+
+<Rectangle Canvas.Left="-11" Canvas.Top="0" Width="10" Height="768" Fill="Black">
+    <physics:PhysicalBox.Body>
+        <physics:RectangleBody IsStatic="True" />
+    </physics:PhysicalBox.Body>
+</Rectangle>
+<Rectangle Canvas.Left="1024" Canvas.Top="0" Width="10" Height="768" Fill="Black">
+    <physics:PhysicalBox.Body>
+        <physics:RectangleBody IsStatic="True" />
+    </physics:PhysicalBox.Body>
+</Rectangle>
+<Rectangle Canvas.Left="-100" Canvas.Top="768" Width="1240" Height="10" Fill="Black">
+    <physics:PhysicalBox.Body>
+        <physics:RectangleBody IsStatic="True" />
+    </physics:PhysicalBox.Body>
+</Rectangle>
+    </textarea>
+
+    <script type="text/javascript">
+        function Highlight(Code) {
+            var Text = document.createElement("pre");
+            Text.style.fontFamily = "Courier New";
+
+            function AddLine(Line) {
+                for (var i = 0; i < Line.length; i++) Text.appendChild(Line[i]);
+                Text.appendChild(document.createElement("br"));
+            }
+            highlightText(Code.value, AddLine);
+
+            Code.parentElement.insertBefore(Text, Code);
+            Code.parentElement.removeChild(Code);
+        }
+        Highlight(document.getElementById("Code1"));
+    </script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectGuid>{2A44345A-DBDF-4992-B0B1-8408833DEE48}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>XamlPhysics</RootNamespace>
+    <AssemblyName>XamlPhysics</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <MyType>Empty</MyType>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DocumentationFile>XamlPhysics.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DefineConstants>SILVERLIGHT=1</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DocumentationFile>XamlPhysics.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DefineConstants>SILVERLIGHT=1</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>\\beta\Builds\ccnet.config\LiserdArts.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Net" />
+    <Import Include="System.Xml" />
+    <Import Include="System.Windows" />
+    <Import Include="System.Windows.Controls" />
+    <Import Include="System.Windows.Documents" />
+    <Import Include="System.Windows.Ink" />
+    <Import Include="System.Windows.Input" />
+    <Import Include="System.Windows.Media" />
+    <Import Include="System.Windows.Media.Animation" />
+    <Import Include="System.Windows.Shapes" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AngleJoint.vb" />
+    <Compile Include="CircleBody.vb" />
+    <Compile Include="CircleGeometry.vb" />
+    <Compile Include="CollideEventArgs.vb" />
+    <Compile Include="CollisionCategoryList.vb" />
+    <Compile Include="DoubleJoint.vb" />
+    <Compile Include="EdgeGeomerty.vb" />
+    <Compile Include="ElipseGeometry.vb" />
+    <Compile Include="EllipseBody.vb" />
+    <Compile Include="FixedAngleJoint.vb" />
+    <Compile Include="FixedRevoluteJoint.vb" />
+    <Compile Include="GameLoop.vb" />
+    <Compile Include="GeometryCollection.vb" />
+    <Compile Include="LineJoint.vb" />
+    <Compile Include="LoopGeomerty.vb" />
+    <Compile Include="MouseDrag.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Version.vb" />
+    <Compile Include="PhysicalBody.vb" />
+    <Compile Include="PhysicalBox.vb" />
+    <Compile Include="PhysicalGeometry.vb" />
+    <Compile Include="PhysicalJoint.vb" />
+    <Compile Include="PolygonBody.vb" />
+    <Compile Include="PolygonGeometry.vb" />
+    <Compile Include="RectangleBody.vb" />
+    <Compile Include="RectangleGeometry.vb" />
+    <Compile Include="RevoluteJoint.vb" />
+    <Compile Include="SliderJoint.vb" />
+    <Compile Include="WeldJoint.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Dependencies\FarseerPhysicsEngine\Farseer Physics 3.2 Silverlight.csproj">
+      <Project>{786DC838-D746-4107-93FF-19A902A78CFC}</Project>
+      <Name>Farseer Physics 3.2 Silverlight</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ReadMe.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.VisualBasic.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
