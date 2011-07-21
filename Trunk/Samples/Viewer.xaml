@@ -10,6 +10,9 @@
            Title="Viewer Page">
     <Grid x:Name="LayoutRoot">
         <physics:PhysicalBox x:Name="UxBox">
+            <physics:PhysicalBox.Clock>
+                <physics:GameLoop Interval="0:0:0.020" />
+            </physics:PhysicalBox.Clock>
             <physics:MouseDrag Width="1024" Height="768">
                 <Canvas x:Name="UxSampleContainer">
                 </Canvas>

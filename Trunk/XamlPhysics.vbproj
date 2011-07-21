@@ -105,6 +105,7 @@
     <Compile Include="EllipseBody.vb" />
     <Compile Include="FixedAngleJoint.vb" />
     <Compile Include="FixedRevoluteJoint.vb" />
+    <Compile Include="GameLoop.vb" />
     <Compile Include="GeometryCollection.vb" />
     <Compile Include="LineJoint.vb" />
     <Compile Include="LoopGeomerty.vb" />

@@ -68,9 +68,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="..\..\Samples\GameLoop.vb">
-      <Link>GameLoop.vb</Link>
-    </Compile>
     <Compile Include="SimpleBodies.xaml.vb">
       <DependentUpon>SimpleBodies.xaml</DependentUpon>
     </Compile>
@@ -169,8 +166,6 @@
       <Link>Images\Stop.png</Link>
     </Resource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
