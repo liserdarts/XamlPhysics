@@ -4,6 +4,7 @@
 'You may obtain a copy of the license at http://xamlphysics.codeplex.com/license
 
 Public Class PhysicalBody
+    Inherits DependencyObject
     
     Shared Sub New()
         GeometriesProperty = DependencyProperty.Register("Geometries", GetType(GeometryCollection), GetType(PhysicalBody), New PropertyMetadata(Nothing))
