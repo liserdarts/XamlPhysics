@@ -68,7 +68,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="..\Samples\GameLoop.vb">
+    <Compile Include="..\..\Samples\GameLoop.vb">
       <Link>GameLoop.vb</Link>
     </Compile>
     <Compile Include="SimpleBodies.xaml.vb">
@@ -146,28 +146,31 @@
     <AppDesigner Include="My Project\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Dependencies\FarseerPhysicsEngine\Farseer Physics 3.2.csproj">
+    <ProjectReference Include="..\..\Dependencies\FarseerPhysicsEngine\Farseer Physics 3.2.csproj">
       <Project>{A4610E4C-DD34-428B-BABB-779CA0B5993A}</Project>
       <Name>Farseer Physics 3.2</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WPF\XamlPhysics.WPF.vbproj">
+    <ProjectReference Include="..\XamlPhysics.WPF.vbproj">
       <Project>{F02796DC-5002-49F6-8342-22ED11EBD0F8}</Project>
       <Name>XamlPhysics.WPF</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="..\Samples\Images\Logo.png">
+    <Resource Include="..\..\Samples\Images\Logo.png">
       <Link>Images\Logo.png</Link>
     </Resource>
-    <Resource Include="..\Samples\Images\Pause.png">
+    <Resource Include="..\..\Samples\Images\Pause.png">
       <Link>Images\Pause.png</Link>
     </Resource>
-    <Resource Include="..\Samples\Images\Run.png">
+    <Resource Include="..\..\Samples\Images\Run.png">
       <Link>Images\Run.png</Link>
     </Resource>
-    <Resource Include="..\Samples\Images\Stop.png">
+    <Resource Include="..\..\Samples\Images\Stop.png">
       <Link>Images\Stop.png</Link>
     </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
