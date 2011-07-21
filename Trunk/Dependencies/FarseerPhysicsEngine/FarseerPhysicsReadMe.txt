@@ -7,7 +7,7 @@ If has been changed to target Silverlight 3
 Some functions were renamed.
 	Some functions in FarseerPhysics.Dynamics.Body were overloaded by only changing the parameters to be passed by reference. This is a poor programming practice and the developers of Farseer Physics are unwilling to fix it. Other languages are not able to call functions overloaded in this way. The functions overloaded by changing parameters in this way were renamed to FunctionNameByRef.
 The default value for FarseerPhysics.Settings.MaxPolygonVertices was changed from 8 to 20.
-If you download if already compiled from the XamlPhysics project, it will have a strong name.
+If you download it already compiled from the XamlPhysics project, it will have a strong name.
 
 
 The Farseer Physics Engine is licensed under the Microsoft Permissive License (Ms-PL) v1.1
