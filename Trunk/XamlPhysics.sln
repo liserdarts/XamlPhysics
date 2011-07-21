@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farseer Physics 3.2", "Depe
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "XamlPhysics.WPF", "WPF\XamlPhysics.WPF.vbproj", "{F02796DC-5002-49F6-8342-22ED11EBD0F8}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "XamlPhysics.WPF.Samples", "XamlPhysics.WPF.Samples\XamlPhysics.WPF.Samples.vbproj", "{60847146-8407-4A26-8311-920ECF74A7AF}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "XamlPhysics.WPF.Samples", "WPF\Samples\XamlPhysics.WPF.Samples.vbproj", "{60847146-8407-4A26-8311-920ECF74A7AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
