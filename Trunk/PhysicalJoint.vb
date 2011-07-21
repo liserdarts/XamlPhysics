@@ -119,7 +119,7 @@ Public MustInherit Class PhysicalJoint
         If Break Then
             Box.World.RemoveJoint(Joint)
             Enabled = False
-            Dispatcher.BeginInvoke(AddressOf OnBroke)
+            Dispatcher.BeginInvoke(New Action(AddressOf OnBroke))
         End If
     End Sub
 
