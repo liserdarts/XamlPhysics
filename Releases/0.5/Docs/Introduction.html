@@ -1,0 +1,95 @@
+<html>
+<head>
+    <title>XamlPhysics - Introduction</title>
+    <script src="CodeMirror/js/highlight.js" type="text/javascript"></script>
+    <script src="CodeMirror/js/stringstream.js" type="text/javascript"></script>
+    <script src="CodeMirror/js/tokenize.js" type="text/javascript"></script>
+    <script src="CodeMirror/js/parsexml.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="CodeMirror/css/xmlcolors.css"/>
+</head>
+<body>
+    <h1>Project Description</h1>
+    <p>
+        Xaml Physics makes it possible to make a physics simulation with only xaml code. It is a wrapper around the Farseer Physics Engine.
+        It can be used in Silverlight, Windows Phone 7, or WPF projects.
+        It's goal is to be easy to approach for new users and not inhibit progress into more advanced requirements.
+    </p>
+
+    <h1>Example</h1>
+
+    <div id="silverlightControlHost">
+        <object data="data:application/x-silverlight-2," height="300" 
+            type="application/x-silverlight-2" width="400">
+            <param name="source" value="XamlPhysics.Samples.xap" />
+            <param name="background" value="white" />
+            <param name="minRuntimeVersion" value="4.0.50826.0" />
+            <param name="autoUpgrade" value="true" />
+            <param name="InitParams" value="Sample=SimpleBodies" />
+    <a href="http://go.microsoft.com/fwlink/?LinkID=149156&v=4.0.50826.0" style="text-decoration:none">
+ 			      <img src="http://go.microsoft.com/fwlink/?LinkId=161376" alt="Get Microsoft Silverlight" style="border-style:none"/>
+		      </a>
+	        </object>
+        <iframe id="_sl_historyFrame" 
+            style="visibility:hidden;height:0px;width:0px;border:0px"></iframe>
+    </div>
+
+    <textarea id="Code" cols="120" rows="15">
+<physics:PhysicalBox x:Name="PhysicalBox">
+    <Rectangle Canvas.Left="80" Canvas.Top="40" Width="100" Height="100" Fill="DarkRed">
+        <physics:PhysicalBox.Body>
+            <physics:RectangleBody />
+        </physics:PhysicalBox.Body>
+    </Rectangle>
+    <Rectangle Canvas.Left="448" Canvas.Top="22" Width="100" Height="100" Fill="DarkCyan">
+        <physics:PhysicalBox.Body>
+            <physics:RectangleBody />
+        </physics:PhysicalBox.Body>
+    </Rectangle>
+    <Rectangle Canvas.Left="668" Canvas.Top="260" Width="100" Height="100" Fill="DarkGray">
+        <physics:PhysicalBox.Body>
+            <physics:RectangleBody />
+        </physics:PhysicalBox.Body>
+    </Rectangle>
+    <Rectangle Canvas.Left="728" Canvas.Top="48" Width="100" Height="100" Fill="DarkKhaki">
+        <physics:PhysicalBox.Body>
+            <physics:RectangleBody />
+        </physics:PhysicalBox.Body>
+    </Rectangle>
+
+    <Ellipse Canvas.Left="255" Canvas.Top="48" Width="50" Height="50" Fill="DarkGreen">
+        <physics:PhysicalBox.Body>
+            <physics:CircleBody />
+        </physics:PhysicalBox.Body>
+    </Ellipse>
+    <Ellipse Canvas.Left="292" Canvas.Top="145" Width="50" Height="50" Fill="DarkGoldenrod">
+        <physics:PhysicalBox.Body>
+            <physics:CircleBody />
+        </physics:PhysicalBox.Body>
+    </Ellipse>
+        
+    <Rectangle Canvas.Left="-100" Canvas.Top="768" Width="1240" Height="10" Fill="Black">
+        <physics:PhysicalBox.Body>
+            <physics:RectangleBody IsStatic="True" />
+        </physics:PhysicalBox.Body>
+    </Rectangle>
+</physics:PhysicalBox>
+    </textarea>
+
+    <script type="text/javascript">
+        function Highlight(Code) {
+            var Text = document.createElement("pre");
+            Text.style.fontFamily = "Courier New";
+
+            function AddLine(Line) {
+                for (var i = 0; i < Line.length; i++) Text.appendChild(Line[i]);
+                Text.appendChild(document.createElement("br"));
+            }
+            highlightText(Code.value, AddLine);
+
+            Code.parentElement.insertBefore(Text, Code);
+            Code.parentElement.removeChild(Code);
+        }
+        Highlight(document.getElementById("Code"));
+    </script>
+</body>
+</html>
