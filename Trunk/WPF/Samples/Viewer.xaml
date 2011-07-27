@@ -13,8 +13,9 @@
                 <physics:GameLoop />
             </physics:PhysicalBox.Clock>
             <physics:MouseDrag Width="1024" Height="768">
-                <Canvas x:Name="UxSampleContainer">
-                </Canvas>
+                <physics:TouchDrag Width="1024" Height="768">
+                    <Canvas x:Name="UxSampleContainer" />
+                </physics:TouchDrag>
             </physics:MouseDrag>
         </physics:PhysicalBox>
         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Height="64" Orientation="Horizontal">
