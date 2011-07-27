@@ -19,16 +19,24 @@ Public Class MouseDrag
     ''' </summary>
     Public Property Frequency() As Double = 5
     
-    Public Property Breakpoint() As Double = Single.MaxValue
+    Public Property LinearBreakpoint() As Double = Single.MaxValue
+
+    Public Property TorqueBreakpoint() As Double = Single.MaxValue
 
     ''' <summary>
     ''' The damping ratio. 0 = no damping, 1 = critical damping.
     ''' </summary>
     Public Property DampingRatio() As Double = 0.7
 
+    ''' <summary>
+    ''' If true, a FixedAngleJoint will be created to stop rotation of the touched body
+    ''' </summary>
+    Public Property StopRotaion() As Boolean
+
     
     Dim SelectedBody As PhysicalBody
-    Dim Joint As FarseerPhysics.Dynamics.Joints.FixedMouseJoint
+    Dim MouseJoint As FarseerPhysics.Dynamics.Joints.FixedMouseJoint
+    Dim AngleJoint As FarseerPhysics.Dynamics.Joints.FixedAngleJoint
     
     Private Sub MouseDrag_MouseLeftButtonDown(sender As Object, e As Windows.Input.MouseButtonEventArgs) Handles Me.MouseLeftButtonDown
         If SelectedBody IsNot Nothing Then Return
@@ -41,12 +49,20 @@ Public Class MouseDrag
         End If
         
         Dim MousePoint = e.GetPosition(SelectedBody.Box)
-        Joint = New FarseerPhysics.Dynamics.Joints.FixedMouseJoint(SelectedBody.Body, SelectedBody.Box.PointToMeter(MousePoint))
-        Joint.MaxForce = MaxForce
-        Joint.Frequency = Frequency
-        Joint.Breakpoint = Breakpoint
-        Joint.DampingRatio = DampingRatio
-        SelectedBody.Box.World.AddJoint(Joint)
+        MouseJoint = New FarseerPhysics.Dynamics.Joints.FixedMouseJoint(SelectedBody.Body, SelectedBody.Box.PointToMeter(MousePoint))
+        MouseJoint.MaxForce = MaxForce
+        MouseJoint.Frequency = Frequency
+        MouseJoint.Breakpoint = LinearBreakpoint
+        MouseJoint.DampingRatio = DampingRatio
+        SelectedBody.Box.World.AddJoint(MouseJoint)
+
+        AngleJoint = New FarseerPhysics.Dynamics.Joints.FixedAngleJoint(SelectedBody.Body)
+        AngleJoint.TargetAngle = SelectedBody.Body.Rotation
+        AngleJoint.MaxImpulse = MaxForce
+        AngleJoint.Breakpoint = TorqueBreakpoint
+        If StopRotaion Then
+            SelectedBody.Box.World.AddJoint(AngleJoint)
+        End If
         
         e.Handled = True
         CaptureMouse
@@ -54,18 +70,20 @@ Public Class MouseDrag
 
     Private Sub MouseDrag_MouseLeftButtonUp(sender As Object, e As Windows.Input.MouseButtonEventArgs) Handles Me.MouseLeftButtonUp
         If SelectedBody Is Nothing Then Return
+        
+        SelectedBody.Box.World.RemoveJoint(MouseJoint)
+        SelectedBody.Box.World.RemoveJoint(AngleJoint)
+        SelectedBody = Nothing
+        MouseJoint = Nothing
+
         e.Handled = True
         ReleaseMouseCapture
-        
-        SelectedBody.Box.World.RemoveJoint(Joint)
-        SelectedBody = Nothing
-        Joint = Nothing
     End Sub
 
     Private Sub MouseDrag_MouseMove(sender As Object, e As Windows.Input.MouseEventArgs) Handles Me.MouseMove
         If SelectedBody Is Nothing Then Return
         
         Dim MousePoint = e.GetPosition(SelectedBody.Box)
-        Joint.WorldAnchorB = SelectedBody.Box.PointToMeter(MousePoint)
+        MouseJoint.WorldAnchorB = SelectedBody.Box.PointToMeter(MousePoint)
     End Sub
 End Class
