@@ -31,6 +31,30 @@ Public Class PhysicalBox
     ''' </summary>
     Public Property World() As FarseerPhysics.Dynamics.World
     
+
+    ''' <summary>
+    ''' Gets or sets the amount of pixels in A meter.
+    ''' </summary>
+    Public Property PixelsInAMeter() As Double = 350
+
+    Dim LGravity As New Point(0, 1.42)
+    Public Property Gravity() As Point
+        Get
+            If World Is Nothing Then
+                Return LGravity
+            Else
+                Return New Point(World.Gravity.X, World.Gravity.Y)
+            End If
+        End Get
+        Set
+            If World Is Nothing Then
+                LGravity = Value
+            Else
+                World.Gravity = New Microsoft.Xna.Framework.Vector2(Value.X, Value.Y)
+            End If
+        End Set
+    End Property
+
     Dim WithEvents LClock As GameLoop
     ''' <summary>
     ''' Gets or sets the clock.
@@ -43,12 +67,6 @@ Public Class PhysicalBox
             LClock = Value
         End Set
     End Property
-
-    ''' <summary>
-    ''' Gets or sets the amount of pixels in A meter.
-    ''' </summary>
-    Public Property PixelsInAMeter() As Double = 350
-
     
     Private Sub Clock_Tick(sender As Object, e As GameLoop.TickEventArgs) Handles LClock.Tick
         World.Step(LClock.Interval.TotalSeconds)
@@ -114,7 +132,7 @@ Public Class PhysicalBox
     ''' </summary>
     ''' <remarks>Be sure any thread calling Update or UpdateUI has been stopped</remarks>
     Public Sub Reset()
-        World = New FarseerPhysics.Dynamics.World(New Microsoft.Xna.Framework.Vector2(0, 1.42))
+        World = New FarseerPhysics.Dynamics.World(New Microsoft.Xna.Framework.Vector2(Gravity.X, Gravity.Y))
         FarseerPhysics.Settings.EnableDiagnostics = False
         FarseerPhysics.Settings.ContinuousPhysics = False
         FarseerPhysics.Settings.VelocityIterations = 8
