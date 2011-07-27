@@ -12,7 +12,7 @@ Public Class MouseDrag
     ''' <summary>
     ''' The maximum constraint force that can be exerted to move the candidate body.
     ''' </summary>
-    Public Property MaxForce() As Double = 1
+    Public Property MaxForce() As Double = 100
     
     ''' <summary>
     ''' The response speed.
@@ -30,7 +30,7 @@ Public Class MouseDrag
     Dim SelectedBody As PhysicalBody
     Dim Joint As FarseerPhysics.Dynamics.Joints.FixedMouseJoint
     
-    Private Sub MouseTrap_MouseLeftButtonDown(sender As Object, e As Windows.Input.MouseButtonEventArgs) Handles Me.MouseLeftButtonDown
+    Private Sub MouseDrag_MouseLeftButtonDown(sender As Object, e As Windows.Input.MouseButtonEventArgs) Handles Me.MouseLeftButtonDown
         If SelectedBody IsNot Nothing Then Return
 
         SelectedBody = PhysicalBox.GetBody(e.OriginalSource)
@@ -52,7 +52,7 @@ Public Class MouseDrag
         CaptureMouse
     End Sub
 
-    Private Sub MouseTrap_MouseLeftButtonUp(sender As Object, e As Windows.Input.MouseButtonEventArgs) Handles Me.MouseLeftButtonUp
+    Private Sub MouseDrag_MouseLeftButtonUp(sender As Object, e As Windows.Input.MouseButtonEventArgs) Handles Me.MouseLeftButtonUp
         If SelectedBody Is Nothing Then Return
         e.Handled = True
         ReleaseMouseCapture
@@ -62,11 +62,10 @@ Public Class MouseDrag
         Joint = Nothing
     End Sub
 
-    Private Sub MouseTrap_MouseMove(sender As Object, e As Windows.Input.MouseEventArgs) Handles Me.MouseMove
+    Private Sub MouseDrag_MouseMove(sender As Object, e As Windows.Input.MouseEventArgs) Handles Me.MouseMove
         If SelectedBody Is Nothing Then Return
         
         Dim MousePoint = e.GetPosition(SelectedBody.Box)
         Joint.WorldAnchorB = SelectedBody.Box.PointToMeter(MousePoint)
-        System.Diagnostics.Debug.WriteLine(Joint.WorldAnchorB.ToString)
     End Sub
 End Class
