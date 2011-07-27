@@ -6,10 +6,6 @@
 Public Class PhysicalBody
     Inherits DependencyObject
     
-    Shared Sub New()
-        GeometriesProperty = DependencyProperty.Register("Geometries", GetType(GeometryCollection), GetType(PhysicalBody), New PropertyMetadata(Nothing))
-    End Sub
-
     ''' <summary>
     ''' Gets or sets a value indicating whether this body is static. This can't be changed after the simulation is started.
     ''' </summary>
@@ -25,14 +21,10 @@ Public Class PhysicalBody
     ''' </summary>
     Public Property IgnoreGravity() As Boolean
 
-    Public Shared GeometriesProperty As DependencyProperty
     Dim LGeometries As New GeometryCollection
     ''' <summary>
     ''' Gets the GeometryCollection that holds the geometries of this body
     ''' </summary>
-    ''' <value></value>
-    ''' <returns></returns>
-    ''' <remarks></remarks>
     Public ReadOnly Property Geometries() As GeometryCollection
         Get
             Return LGeometries
