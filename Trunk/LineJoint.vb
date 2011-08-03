@@ -26,6 +26,8 @@ Public Class LineJoint
         Dim BodyA = PhysicalBox.GetBody(Body).Body
         Dim BodyB = PhysicalBox.GetBody(Body2).Body
         Dim AnchorB = Box.PointToMeter(Canvas.GetLeft(Me), Canvas.GetTop(Me))
+        If Single.IsNaN(AnchorB.X) Then AnchorB.X = 0
+        If Single.IsNaN(AnchorB.Y) Then AnchorB.Y = 0
         
         AnchorB = BodyB.GetLocalPoint(AnchorB)
         Joint = FarseerPhysics.Factories.JointFactory.CreateLineJoint(BodyA, BodyB, AnchorB, New Microsoft.Xna.Framework.Vector2(0.1, 0.1))

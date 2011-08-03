@@ -20,8 +20,12 @@ Public Class CircleBody
             If Radius = 0 Then Radius = FElement.Width / 2
         End If
         
+        Dim Position = New Point(Canvas.GetLeft(Element), Canvas.GetTop(Element))
+        If Single.IsNaN(Position.X) Then Position.X = 0
+        If Single.IsNaN(Position.Y) Then Position.Y = 0
+
         Body = New FarseerPhysics.Dynamics.Body(Box.World)
-        Body.Position = Box.PointToMeter(Canvas.GetLeft(Element) + Radius, Canvas.GetTop(Element) + Radius)
+        Body.Position = Box.PointToMeter(Position.X + Radius, Position.Y + Radius)
         
         If Geometries.Count = 0 Then
             Geometries.Add(New CircleGeometry)
