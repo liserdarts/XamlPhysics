@@ -90,7 +90,7 @@ Public Class PhysicalBox
 
 
     Dim Bodies As List(Of PhysicalBody)
-    Dim Elements As New Dictionary(Of Object, UIElement)
+    Dim Elements As New Dictionary(Of PhysicalBody, UIElement)
     Dim Joints As List(Of PhysicalJoint)
     
     ''' <summary>
@@ -198,6 +198,21 @@ Public Class PhysicalBox
         Next
     End Sub
     
+    ''' <summary>
+    ''' Searches the elements for one that matches the Predicate
+    ''' </summary>
+    Public Function FindElement(Match As Predicate(Of PhysicalBody)) As UIElement
+        If Elements IsNot Nothing Then
+            For Each PhysicalBody In Elements
+                If Match(PhysicalBody.Key) Then
+                    Return PhysicalBody.Value
+                End If
+            Next
+        End If
+
+        Return Nothing
+    End Function
+
     ''' <summary>
     ''' Converts a measurement in pixels to meters
     ''' </summary>
