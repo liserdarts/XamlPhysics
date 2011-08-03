@@ -151,7 +151,7 @@ Public Class PhysicalBox
         
         FindBodies(Me)
         FindJoints(Me)
-        'Prevent the bodies from being place at the origin for a frame
+        'Prevent the bodies from being placed at the origin for a frame
         Update(TimeSpan.FromSeconds(1))
     End Sub
 
