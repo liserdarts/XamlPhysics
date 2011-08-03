@@ -56,8 +56,12 @@ Public Class PhysicalBody
     End Sub
     
     Protected Overridable Sub CreatePhysicalObject(Element As UIElement)
+        Dim Position = Box.PointToMeter(Canvas.GetLeft(Element), Canvas.GetTop(Element))
+        If Single.IsNaN(Position.X) Then Position.X = 0
+        If Single.IsNaN(Position.Y) Then Position.Y = 0
+
         Body = New FarseerPhysics.Dynamics.Body(Box.World)
-        Body.Position = Box.PointToMeter(Canvas.GetLeft(Element), Canvas.GetTop(Element))
+        Body.Position = Position
     End Sub
     
     Protected Overridable Sub SetBodyProperties()

@@ -23,7 +23,11 @@ Public Class FixedRevoluteJoint
     End Property
     
     Protected Overrides Sub CreateJoint()
-        Dim WorldAnchor = Box.PointToMeter(Canvas.GetLeft(Me), Canvas.GetTop(Me))
+        Dim Position = Box.PointToMeter(Canvas.GetLeft(Me), Canvas.GetTop(Me))
+        If Single.IsNaN(Position.X) Then Position.X = 0
+        If Single.IsNaN(Position.Y) Then Position.Y = 0
+
+        Dim WorldAnchor = Position
         Dim BodyAnchor = PhysicalBox.GetBody(Body).Body.WorldCenter
 
         BodyAnchor = WorldAnchor - BodyAnchor

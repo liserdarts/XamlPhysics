@@ -27,9 +27,13 @@ Public Class EllipseBody
             If Width = 0 Then Width = FElement.Width
             If Height = 0 Then Height = FElement.Height
         End If
+        
+        Dim Position = Box.PointToMeter(Canvas.GetLeft(Element), Canvas.GetTop(Element))
+        If Single.IsNaN(Position.X) Then Position.X = 0
+        If Single.IsNaN(Position.Y) Then Position.Y = 0
 
         Body = New FarseerPhysics.Dynamics.Body(Box.World)
-        Body.Position = Box.PointToMeter(Canvas.GetLeft(Element) + Width / 2, Canvas.GetTop(Element) + Height / 2)
+        Body.Position = Position
         
         If Geometries.Count = 0 Then
             Geometries.Add(New EllipseGeometry)
