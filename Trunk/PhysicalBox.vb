@@ -30,8 +30,12 @@ Public Class PhysicalBox
     ''' The world object from the Farseer Physics Engine.
     ''' </summary>
     Public Property World() As FarseerPhysics.Dynamics.World
-    
 
+    ''' <summary>
+    ''' Enable/Disable Continuous Collision Detection (CCD)
+    ''' </summary>
+    Public Property ContinuousPhysics() As Boolean = True
+    
     ''' <summary>
     ''' Gets or sets the amount of pixels in A meter.
     ''' </summary>
@@ -134,7 +138,7 @@ Public Class PhysicalBox
     Public Sub Reset()
         World = New FarseerPhysics.Dynamics.World(New Microsoft.Xna.Framework.Vector2(Gravity.X, Gravity.Y))
         FarseerPhysics.Settings.EnableDiagnostics = False
-        FarseerPhysics.Settings.ContinuousPhysics = False
+        FarseerPhysics.Settings.ContinuousPhysics = ContinuousPhysics
         FarseerPhysics.Settings.VelocityIterations = 8
         FarseerPhysics.Settings.PositionIterations = 8
 
