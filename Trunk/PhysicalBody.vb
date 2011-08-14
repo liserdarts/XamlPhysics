@@ -11,6 +11,8 @@ Public Class PhysicalBody
     ''' </summary>
     Public Property IsStatic() As Boolean
 
+    Public Property IsBullet() As Boolean
+
     ''' <summary>
     ''' Gets or sets the mass. Usually in kilograms (kg). This can't be changed after the simulation is started.
     ''' </summary>
@@ -62,6 +64,7 @@ Public Class PhysicalBody
 
         Body = New FarseerPhysics.Dynamics.Body(Box.World)
         Body.Position = Position
+        Body.IsBullet = True
     End Sub
     
     Protected Overridable Sub SetBodyProperties()
