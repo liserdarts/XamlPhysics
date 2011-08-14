@@ -53,7 +53,7 @@ Public Class GameLoop
     Dim Thread As System.Threading.Thread
     Dim ResetEvent As New System.Threading.AutoResetEvent(False)
     
-    Dim LInterval As TimeSpan = TimeSpan.FromMilliseconds(1)
+    Dim LInterval As TimeSpan = TimeSpan.FromMilliseconds(5)
     ''' <summary>
     ''' Gets or sets the time between ticks.
     ''' </summary>
@@ -69,7 +69,7 @@ Public Class GameLoop
         End Set
     End Property
 
-    Dim LUISteps As Integer = 1
+    Dim LUISteps As Integer = 5
     ''' <summary>
     ''' The amount of ticks before the UI tick
     ''' </summary>
