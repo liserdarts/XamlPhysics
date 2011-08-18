@@ -41,7 +41,7 @@ Public Class PhysicalBox
     ''' </summary>
     Public Property PixelsInAMeter() As Double = 350
 
-    Dim LGravity As New Point(0, 1.42)
+    Dim LGravity As New Point(0, 3)
     Public Property Gravity() As Point
         Get
             If World Is Nothing Then
