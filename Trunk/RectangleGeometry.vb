@@ -33,21 +33,10 @@ Public Class RectangleGeometry
     ''' <remarks>This can't be changed after the simulation is started.</remarks>
     Public Property Height() As Double
     
-    Protected Overrides Sub CreateGeom(Body As PhysicalBody)
-        If TypeOf Body Is RectangleBody Then
-            Dim RBody As RectangleBody = Body
-            If Width = 0 Then Width = RBody.Width
-            If Height = 0 Then Height = RBody.Height
-        End If
-        
-        Dim Vertices = FarseerPhysics.Common.PolygonTools.CreateRectangle(Box.PixelToMeter(Width / 2), Box.PixelToMeter(Height / 2))
-
-        For I As Integer = 0 To Vertices.Count - 1
-            Dim Point = Vertices(I)
-            Point.X = Point.X + Box.PixelToMeter(Left)
-            Point.Y = Point.Y + Box.PixelToMeter(Top)
-            Vertices(I) = Point
-        Next
+    Protected Overrides Sub CreateGeom()
+        Dim Half = Box.PointToMeter(Width / 2, Height / 2)
+        Dim Origin = Box.PointToMeter(Left, Top)
+        Dim Vertices = FarseerPhysics.Common.PolygonTools.CreateRectangle(Half.X, Half.Y, Half + Origin, 0)
 
         Geom = New FarseerPhysics.Collision.Shapes.PolygonShape(Vertices, 1)
     End Sub

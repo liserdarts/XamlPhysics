@@ -60,7 +60,7 @@ Public Class EdgeGeomerty
     ''' </summary>
     Public Property HasVertex3() As Boolean
     
-    Protected Overrides Sub CreateGeom(Body As PhysicalBody)
+    Protected Overrides Sub CreateGeom()
         Dim Edge As New FarseerPhysics.Collision.Shapes.EdgeShape(Microsoft.Xna.Framework.Vector2.Zero, Microsoft.Xna.Framework.Vector2.Zero)
         
         Edge.Vertex0 = Box.PointToMeter(Vertex0.X, Vertex0.Y)

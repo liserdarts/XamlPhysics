@@ -24,13 +24,7 @@ Public Class EllipseGeometry
     ''' </summary>
     Public Property NumberOfEdges() As Integer = 20
     
-    Protected Overrides Sub CreateGeom(Body As PhysicalBody)
-        If TypeOf Body Is EllipseBody Then
-            Dim EBody As EllipseBody = Body
-            If Width = 0 Then Width = EBody.Width
-            If Height = 0 Then Height = EBody.Height
-        End If
-        
+    Protected Overrides Sub CreateGeom()
         Dim Vertices = FarseerPhysics.Common.PolygonTools.CreateEllipse(Box.PixelToMeter(Width / 2), Box.PixelToMeter(Height / 2), NumberOfEdges)
         Geom = New FarseerPhysics.Collision.Shapes.PolygonShape(Vertices, 1)
     End Sub

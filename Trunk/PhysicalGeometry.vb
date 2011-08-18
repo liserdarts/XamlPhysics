@@ -33,29 +33,36 @@ Public MustInherit Class PhysicalGeometry
     ''' Gets or sets the density used to calculate the mass based on size. Default is 1.
     ''' </summary>
     ''' <value>The density.</value>
-    Public Property Density As Double = 1
+    Public Property Density() As Double = 1
     
+    ''' <summary>
+    ''' The <c>PhysicalBody</c> this geometry belongs to
+    ''' </summary>
+    Public Property Body() As PhysicalBody
+
     ''' <summary>
     ''' The <c>PhysicsBox</c> this geometry is in
     ''' </summary>
-    Public Property Box As PhysicalBox
+    Public Property Box() As PhysicalBox
 
     ''' <summary>
     ''' The <c>Shape</c> object from the Farseer Physics Engine
     ''' </summary>
-    Public Property Geom As FarseerPhysics.Collision.Shapes.Shape
+    Public Property Geom() As FarseerPhysics.Collision.Shapes.Shape
 
     ''' <summary>
     ''' The <c>Fixture</c> object from the Farseer Physics Engine
     ''' </summary>
-    Public Property Fixture As FarseerPhysics.Dynamics.Fixture
+    Public Property Fixture() As FarseerPhysics.Dynamics.Fixture
     
     ''' <summary>
     ''' Creates the <c>Geom</c> and <c>Fixture</c> objects
     ''' </summary>
     Public Overridable Sub Initialize(Body As PhysicalBody)
-        CreateGeom(Body)
-        SetGeomProperties(Body)
+        Me.Body = Body
+        
+        CreateGeom
+        SetGeomProperties
 
         Fixture = Body.Body.CreateFixture(Geom)
         Fixture.Friction = FrictionCoefficient
@@ -69,9 +76,9 @@ Public MustInherit Class PhysicalGeometry
         Fixture.OnSeparation = New FarseerPhysics.Dynamics.OnSeparationEventHandler(AddressOf OnSeparate)
     End Sub
     
-    Protected MustOverride Sub CreateGeom(Body As PhysicalBody)
+    Protected MustOverride Sub CreateGeom()
     
-    Protected Overridable Sub SetGeomProperties(Body As PhysicalBody)
+    Protected Overridable Sub SetGeomProperties()
         Geom.Density = Density
     End Sub
     

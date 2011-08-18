@@ -19,29 +19,21 @@ Public Class RectangleBody
     ''' </summary>
     Public Property Height() As Double
     
-    Protected Overrides Sub CreatePhysicalObject(Element As System.Windows.UIElement)
+    Protected Overrides Sub CreatePhysicalObject()
+        MyBase.CreatePhysicalObject
+        
         If TypeOf Element Is FrameworkElement Then
             Dim FElement As FrameworkElement = Element
             If Width = 0 Then Width = FElement.Width
             If Height = 0 Then Height = FElement.Height
         End If
         
-        Dim Position = New Point(Canvas.GetLeft(Element), Canvas.GetTop(Element))
-        If Single.IsNaN(Position.X) Then Position.X = 0
-        If Single.IsNaN(Position.Y) Then Position.Y = 0
-
-        Body = New FarseerPhysics.Dynamics.Body(Box.World)
-        Body.Position = Box.PointToMeter(Position.X + (Width / 2), Position.Y + (Height / 2))
-        
         If Geometries.Count = 0 Then
-            Geometries.Add(New RectangleGeometry)
+            Dim Rect As New RectangleGeometry
+            Rect.Width = Width
+            Rect.Height = Height
+            Geometries.Add(Rect)
         End If
     End Sub
-    
-    Protected Overrides Sub CreateTransforms(Element As UIElement)
-        MyBase.CreateTransforms(Element)
-        
-        Rotate.CenterX = Width / 2
-        Rotate.CenterY = Height / 2
-    End Sub
+
 End Class
