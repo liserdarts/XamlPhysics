@@ -105,6 +105,9 @@
     <Compile Include="..\EllipseBody.vb">
       <Link>EllipseBody.vb</Link>
     </Compile>
+    <Compile Include="..\EmptyBody.vb">
+      <Link>EmptyBody.vb</Link>
+    </Compile>
     <Compile Include="..\FixedAngleJoint.vb">
       <Link>FixedAngleJoint.vb</Link>
     </Compile>

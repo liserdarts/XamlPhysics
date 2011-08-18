@@ -173,10 +173,6 @@ Public Class PhysicalBox
                         Body.Initialize(Child)
 
                         Elements.Add(Body, Child)
-                        For Each Geom In Body.Geometries
-                            Geom.Box = Me
-                            Geom.Initialize(Body)
-                        Next
                     End If
                 End If
             End If

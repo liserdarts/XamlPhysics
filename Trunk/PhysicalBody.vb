@@ -27,7 +27,7 @@ Public Class PhysicalBody
     ''' <summary>
     ''' Gets the GeometryCollection that holds the geometries of this body
     ''' </summary>
-    Public ReadOnly Property Geometries() As GeometryCollection
+    Protected ReadOnly Property Geometries() As GeometryCollection
         Get
             Return LGeometries
         End Get
@@ -36,35 +36,42 @@ Public Class PhysicalBody
     ''' <summary>
     ''' The <c>PhysicalBox</c> this body is in
     ''' </summary>
-    Public Property Box As PhysicalBox
+    Public Property Box() As PhysicalBox
+
+    ''' <summary>
+    ''' The <c>UIElement</c> this body is attached to
+    ''' </summary>
+    Public Property Element() As UIElement
 
     ''' <summary>
     ''' The <c>Body</c> object from the Farseer Physics Engine
     ''' </summary>
-    Public Property Body As FarseerPhysics.Dynamics.Body
+    Public Property Body() As FarseerPhysics.Dynamics.Body
 
     ''' <summary>
     ''' The <c>RotateTransform</c> used to rotate the <c>UIElement</c>
     ''' </summary>
-    Public Property Rotate As New RotateTransform
+    Public Property Rotate() As New RotateTransform
     
     ''' <summary>
     ''' Creates all the objects for the Farseer Physics Engine, and sets their properties
     ''' </summary>
     Public Sub Initialize(Element As UIElement)
-        CreatePhysicalObject(Element)
+        Me.Element = Element
+        
+        CreatePhysicalObject
         SetBodyProperties
-        CreateTransforms(Element)
+        CreateTransforms
+        InitializeGeometries
     End Sub
     
-    Protected Overridable Sub CreatePhysicalObject(Element As UIElement)
+    Protected Overridable Sub CreatePhysicalObject()
         Dim Position = Box.PointToMeter(Canvas.GetLeft(Element), Canvas.GetTop(Element))
         If Single.IsNaN(Position.X) Then Position.X = 0
         If Single.IsNaN(Position.Y) Then Position.Y = 0
 
         Body = New FarseerPhysics.Dynamics.Body(Box.World)
         Body.Position = Position
-        Body.IsBullet = True
     End Sub
     
     Protected Overridable Sub SetBodyProperties()
@@ -72,9 +79,10 @@ Public Class PhysicalBody
             Body.BodyType = FarseerPhysics.Dynamics.BodyType.Dynamic
         End If
         Body.IgnoreGravity = IgnoreGravity
+        Body.IsBullet = True
     End Sub
     
-    Protected Overridable Sub CreateTransforms(Element As UIElement)
+    Protected Overridable Sub CreateTransforms()
         Dim Transforms As New TransformGroup
         If Element.RenderTransform IsNot Nothing Then 'Keep the transforms that are already there
             Transforms.Children.Add(Element.RenderTransform)
@@ -83,6 +91,13 @@ Public Class PhysicalBody
 
         Rotate = New RotateTransform
         Transforms.Children.Add(Rotate)
+    End Sub
+
+    Protected Overridable Sub InitializeGeometries()
+        For Each Geom In Geometries
+            Geom.Box = Box
+            Geom.Initialize(Me)
+        Next
     End Sub
     
     Dim Position As Point

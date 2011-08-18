@@ -103,6 +103,7 @@
     <Compile Include="EdgeGeomerty.vb" />
     <Compile Include="ElipseGeometry.vb" />
     <Compile Include="EllipseBody.vb" />
+    <Compile Include="EmptyBody.vb" />
     <Compile Include="FixedAngleJoint.vb" />
     <Compile Include="FixedRevoluteJoint.vb" />
     <Compile Include="GameLoop.vb" />

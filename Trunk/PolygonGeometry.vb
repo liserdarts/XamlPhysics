@@ -15,15 +15,7 @@ Public Class PolygonGeometry
     ''' <remarks>This can't be changed after the simulation is started.</remarks>
     Public Property Points() As New PointCollection
     
-    Protected Overrides Sub CreateGeom(Body As PhysicalBody)
-        If TypeOf Body Is PolygonBody Then
-            If Points.Count = 0 Then
-                For Each Point In CType(Body, PolygonBody).Points
-                    Points.Add(Point)
-                Next
-            End If
-        End If
-        
+    Protected Overrides Sub CreateGeom()
         Dim PhysicalPoints As New List(Of Microsoft.Xna.Framework.Vector2)
         For Each Point In Points
             PhysicalPoints.Add(Box.PointToMeter(Point.X - Body.Rotate.CenterX, Point.Y - Body.Rotate.CenterY))

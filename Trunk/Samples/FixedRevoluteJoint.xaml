@@ -17,7 +17,7 @@
             </physics:PhysicalBox.Body>
         </Rectangle>
 
-        <physics:FixedRevoluteJoint Body="{Binding ElementName=UxBox1}" Canvas.Left="600" Canvas.Top="598" />
+        <physics:FixedRevoluteJoint Body="{Binding ElementName=UxBox1}" Canvas.Left="600" Canvas.Top="575" />
 
         <Rectangle Canvas.Left="-100" Canvas.Top="768" Width="1240" Height="10" Fill="Black">
             <physics:PhysicalBox.Body>

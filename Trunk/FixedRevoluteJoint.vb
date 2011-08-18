@@ -27,12 +27,9 @@ Public Class FixedRevoluteJoint
         If Single.IsNaN(Position.X) Then Position.X = 0
         If Single.IsNaN(Position.Y) Then Position.Y = 0
 
-        Dim WorldAnchor = Position
-        Dim BodyAnchor = PhysicalBox.GetBody(Body).Body.WorldCenter
+        Dim BodyAnchor = PhysicalBox.GetBody(Body).Body.GetLocalPoint(Position)
 
-        BodyAnchor = WorldAnchor - BodyAnchor
-
-        Joint = New FarseerPhysics.Dynamics.Joints.FixedRevoluteJoint(PhysicalBox.GetBody(Body).Body, BodyAnchor, WorldAnchor)
+        Joint = New FarseerPhysics.Dynamics.Joints.FixedRevoluteJoint(PhysicalBox.GetBody(Body).Body, BodyAnchor, Position)
     End Sub
     
 End Class

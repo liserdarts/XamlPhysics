@@ -21,7 +21,7 @@ Public Class EllipseBody
     ''' <remarks>This can't be changed after the simulation is started</remarks>
     Public Property Height() As Double
     
-    Protected Overrides Sub CreatePhysicalObject(Element As UIElement)
+    Protected Overrides Sub CreatePhysicalObject()
         If TypeOf Element Is FrameworkElement Then
             Dim FElement As FrameworkElement = Element
             If Width = 0 Then Width = FElement.Width
@@ -35,13 +35,14 @@ Public Class EllipseBody
         Body = New FarseerPhysics.Dynamics.Body(Box.World)
         Body.Position = Position
         
-        If Geometries.Count = 0 Then
-            Geometries.Add(New EllipseGeometry)
-        End If
+        Dim Ellipse As New EllipseGeometry
+        Ellipse.Width = Width
+        Ellipse.Height = Height
+        Geometries.Add(Ellipse)
     End Sub
     
-    Protected Overrides Sub CreateTransforms(Element As UIElement)
-        MyBase.CreateTransforms(Element)
+    Protected Overrides Sub CreateTransforms()
+        MyBase.CreateTransforms
         
         Rotate.CenterX = Width / 2
         Rotate.CenterY = Height / 2

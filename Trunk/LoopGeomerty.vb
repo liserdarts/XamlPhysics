@@ -17,7 +17,7 @@ Public Class LoopGeomerty
     ''' </summary>
     Public Property Points() As New PointCollection
     
-    Protected Overrides Sub CreateGeom(Body As PhysicalBody)
+    Protected Overrides Sub CreateGeom()
         Dim PhysicalPoints As New List(Of Microsoft.Xna.Framework.Vector2)
         For Each Point In Points
             PhysicalPoints.Add(Box.PointToMeter(Point.X, Point.Y))

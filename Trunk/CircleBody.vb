@@ -13,8 +13,10 @@ Public Class CircleBody
     ''' Gets or sets the Radius. If none is given the Radius will be calculated automatically.
     ''' </summary>
     Public Property Radius() As Double
+
+    Public Property Geomerty() As CircleGeometry
     
-    Protected Overrides Sub CreatePhysicalObject(Element As System.Windows.UIElement)
+    Protected Overrides Sub CreatePhysicalObject()
         If TypeOf Element Is FrameworkElement Then
             Dim FElement As FrameworkElement = Element
             If Radius = 0 Then Radius = FElement.Width / 2
@@ -27,13 +29,13 @@ Public Class CircleBody
         Body = New FarseerPhysics.Dynamics.Body(Box.World)
         Body.Position = Box.PointToMeter(Position.X + Radius, Position.Y + Radius)
         
-        If Geometries.Count = 0 Then
-            Geometries.Add(New CircleGeometry)
-        End If
+        Dim Circle As New CircleGeometry
+        Circle.Radius = Radius
+        Geometries.Add(Circle)
     End Sub
     
-    Protected Overrides Sub CreateTransforms(Element As UIElement)
-        MyBase.CreateTransforms(Element)
+    Protected Overrides Sub CreateTransforms()
+        MyBase.CreateTransforms
         
         Rotate.CenterX = Radius
         Rotate.CenterY = Radius

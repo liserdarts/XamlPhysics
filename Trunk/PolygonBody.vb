@@ -15,7 +15,7 @@ Public Class PolygonBody
     ''' <remarks>This can't be changed after the simulation is started.</remarks>
     Public Property Points() As New PointCollection
     
-    Protected Overrides Sub CreatePhysicalObject(Element As System.Windows.UIElement)
+    Protected Overrides Sub CreatePhysicalObject()
         If TypeOf Element Is Polygon Then
             If Points.Count = 0 Then
                 For Each Point In CType(Element, Polygon).Points
@@ -31,9 +31,9 @@ Public Class PolygonBody
         Body = New FarseerPhysics.Dynamics.Body(Box.World)
         Body.Position = Position
         
-        If Geometries.Count = 0 Then
-            Geometries.Add(New PolygonGeometry)
-        End If
+        Dim Poly As New PolygonGeometry
+        Poly.Points = Points
+        Geometries.Add(Poly)
     End Sub
     
 End Class
