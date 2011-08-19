@@ -3,7 +3,7 @@
 'you may not use this file except in compliance with the License.
 'You may obtain a copy of the license at http://xamlphysics.codeplex.com/license
 
-Public Class PhysicalBody
+Public MustInherit Class PhysicalBody
     Inherits DependencyObject
     
     ''' <summary>
@@ -11,6 +11,9 @@ Public Class PhysicalBody
     ''' </summary>
     Public Property IsStatic() As Boolean
 
+    ''' <summary>
+    ''' Gets or sets a value indicating whether this body should be included in the CCD solver.
+    ''' </summary>
     Public Property IsBullet() As Boolean
 
     ''' <summary>
