@@ -8,22 +8,25 @@
     d:DesignHeight="768" d:DesignWidth="1024">
 
     <Canvas>
-        <Polygon Points="0,10, 10,0, 20,10, 9,90" Fill="DarkRed" Canvas.Left="600" Canvas.Top="110" Width="20" Height="90">
+        <Polygon Points="0,12, 20,0, 40,10, 18,60" Fill="DarkRed" Canvas.Left="600" Canvas.Top="110" Width="40" Height="80">
             <physics:PhysicalBox.Body>
                 <physics:PolygonBody>
                 </physics:PolygonBody>
             </physics:PhysicalBox.Body>
         </Polygon>
-        <Polygon Points="0,10, 10,0, 20,10, 11,90" Fill="DarkGreen" Canvas.Left="407" Canvas.Top="316" Width="20" Height="90">
+        <Polygon Points="0,12, 20,0, 40,10, 18,60" Fill="DarkGreen" Canvas.Left="341" Canvas.Top="199" Width="40" Height="80">
             <physics:PhysicalBox.Body>
-                <physics:PolygonBody>
-                </physics:PolygonBody>
+                <physics:PolygonBody />
             </physics:PhysicalBox.Body>
         </Polygon>
-        <Polygon Points="0,10, 10,0, 40,10, 31,50" Fill="DarkGoldenrod" Canvas.Left="476" Canvas.Top="48" Width="50" Height="90">
+        <Polygon Points="0,10, 10,0, 40,10, 31,50" Fill="DarkGoldenrod" Canvas.Left="476" Canvas.Top="48" Width="40" Height="50">
             <physics:PhysicalBox.Body>
-                <physics:PolygonBody>
-                </physics:PolygonBody>
+                <physics:PolygonBody />
+            </physics:PhysicalBox.Body>
+        </Polygon>
+        <Polygon Points="0,0 0,164 10,164 12,148 15,133 21,115 27,101 33,90 41,78 48,69 58,58 69,48 78,41 90,33 101,27 115,21 133,15 148,12 164,10 164,0" Fill="DarkBlue" Canvas.Left="206" Canvas.Top="70" Width="160" Height="160">
+            <physics:PhysicalBox.Body>
+                <physics:PolygonBody />
             </physics:PhysicalBox.Body>
         </Polygon>
 
