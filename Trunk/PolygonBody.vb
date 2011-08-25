@@ -31,9 +31,21 @@ Public Class PolygonBody
         Body = New FarseerPhysics.Dynamics.Body(Box.World)
         Body.Position = Position
         
-        Dim Poly As New PolygonGeometry
-        Poly.Points = Points
-        Geometries.Add(Poly)
+        Dim PhysicalPoints As New FarseerPhysics.Common.Vertices
+        'Dim PhysicalPoints As New List(Of Microsoft.Xna.Framework.Vector2)
+        For Each Point In Points
+            PhysicalPoints.Add(New Microsoft.Xna.Framework.Vector2(Point.X, Point.Y))
+        Next
+        
+        Dim Polygons = FarseerPhysics.Common.Decomposition.EarclipDecomposer.ConvexPartition(PhysicalPoints)
+            
+        For Each Poly In Polygons
+            Dim Geom As New PolygonGeometry
+            For Each Vertex In Poly
+                Geom.Points.Add(New Point(Vertex.X, Vertex.Y))
+            Next
+            Geometries.Add(Geom)
+        Next
     End Sub
     
 End Class
