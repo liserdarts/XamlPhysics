@@ -7,7 +7,7 @@
 ''' A <c>PhysicalBody</c> that will create a <c>RectangleGeometry</c> if no geometry is given
 ''' </summary>
 Public Class RectangleBody
-    Inherits PhysicalBody
+    Inherits SingleGeometryBody
     
     ''' <summary>
     ''' Gets or sets the width. If none is given the width will be calculated automatically.
@@ -28,12 +28,10 @@ Public Class RectangleBody
             If Height = 0 Then Height = FElement.Height
         End If
         
-        If Geometries.Count = 0 Then
-            Dim Rect As New RectangleGeometry
-            Rect.Width = Width
-            Rect.Height = Height
-            Geometries.Add(Rect)
-        End If
+        Dim Rect As New RectangleGeometry
+        Rect.Width = Width
+        Rect.Height = Height
+        Geometries.Add(Rect)
     End Sub
 
 End Class

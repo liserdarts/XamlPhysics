@@ -7,7 +7,7 @@
 ''' A <c>PhysicalBody</c> that will create a <c>CircleGeometry</c> if no geometry is given
 ''' </summary>
 Public Class CircleBody
-    Inherits PhysicalBody
+    Inherits SingleGeometryBody
     
     ''' <summary>
     ''' Gets or sets the Radius. If none is given the Radius will be calculated automatically.

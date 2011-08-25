@@ -7,7 +7,7 @@
 ''' PhysicalBody that will create an EllipseGeometry if none is provided
 ''' </summary>
 Public Class EllipseBody
-    Inherits PhysicalBody
+    Inherits SingleGeometryBody
     
     ''' <summary>
     ''' The width of the ellipse, if not provided the parent objects width will be used
