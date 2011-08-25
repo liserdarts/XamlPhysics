@@ -32,7 +32,6 @@ Public Class PolygonBody
         Body.Position = Position
         
         Dim PhysicalPoints As New FarseerPhysics.Common.Vertices
-        'Dim PhysicalPoints As New List(Of Microsoft.Xna.Framework.Vector2)
         For Each Point In Points
             PhysicalPoints.Add(New Microsoft.Xna.Framework.Vector2(Point.X, Point.Y))
         Next
