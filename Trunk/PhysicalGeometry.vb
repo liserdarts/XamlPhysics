@@ -21,12 +21,24 @@ Public MustInherit Class PhysicalGeometry
         RaiseEvent Separate(Me, E)
     End Sub
 
+    ''' <summary>
+    ''' Get or set the coefficient of friction.
+    ''' </summary>
     Public Property FrictionCoefficient() As Double = 0.2
     
+    ''' <summary>
+    ''' Get or set the coefficient of restitution.
+    ''' </summary>
     Public Property RestitutionCoefficient() As Double = 0.5
     
+    ''' <summary>
+    ''' The collision category this body is in
+    ''' </summary>
     Public Property CollisionCategory() As FarseerPhysics.Dynamics.Category = FarseerPhysics.Dynamics.Category.All
-
+    
+    ''' <summary>
+    ''' The categories that this body will collide with
+    ''' </summary>
     Public Property CollidesWith() As CollisionCategoryCollection
     
     ''' <summary>
