@@ -7,7 +7,7 @@
 ''' A <c>PhysicalBody</c> that will create a <c>PolygonGeometry</c> if no geometry is given
 ''' </summary>
 Public Class PolygonBody
-    Inherits PhysicalBody
+    Inherits SingleGeometryBody
     
     ''' <summary>
     ''' Gets or sets the points for the geometry. If none are given and this is placed in a <c>Polygon</c> the points will be added automatically.

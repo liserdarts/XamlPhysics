@@ -122,6 +122,7 @@
     <Compile Include="RectangleBody.vb" />
     <Compile Include="RectangleGeometry.vb" />
     <Compile Include="RevoluteJoint.vb" />
+    <Compile Include="SingleGeometryBody.vb" />
     <Compile Include="SliderJoint.vb" />
     <Compile Include="WeldJoint.vb" />
   </ItemGroup>

@@ -159,6 +159,9 @@
     <Compile Include="..\RevoluteJoint.vb">
       <Link>RevoluteJoint.vb</Link>
     </Compile>
+    <Compile Include="..\SingleGeometryBody.vb">
+      <Link>SingleGeometryBody.vb</Link>
+    </Compile>
     <Compile Include="..\SliderJoint.vb">
       <Link>SliderJoint.vb</Link>
     </Compile>
