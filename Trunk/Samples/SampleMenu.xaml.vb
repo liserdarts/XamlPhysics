@@ -39,6 +39,7 @@
         Samples.Add(New SampleInfo(GetType(Friction)))
         Samples.Add(New SampleInfo(GetType(Restitution)))
         Samples.Add(New SampleInfo(GetType(Controls)))
+        Samples.Add(New SampleInfo(GetType(CollisionEvents)))
 
         UxSamples.ItemsSource = Samples
     End Sub

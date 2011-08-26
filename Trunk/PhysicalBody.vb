@@ -6,6 +6,16 @@
 Public MustInherit Class PhysicalBody
     Inherits DependencyObject
     
+    Event Collide(Sender As Object, e As CollideEventArgs)
+    Protected Overridable Sub OnCollide(sender As Object, Args As CollideEventArgs)
+        RaiseEvent Collide(Me, Args)
+    End Sub
+
+    Event Separate(Sender As Object, e As CollideEventArgs)
+    Protected Overridable Sub OnSeparate(sender As Object, Args As CollideEventArgs)
+        RaiseEvent Separate(Me, Args)
+    End Sub
+
     ''' <summary>
     ''' Gets or sets a value indicating whether this body is static. This can't be changed after the simulation is started.
     ''' </summary>
@@ -55,6 +65,13 @@ Public MustInherit Class PhysicalBody
     ''' The <c>RotateTransform</c> used to rotate the <c>UIElement</c>
     ''' </summary>
     Public Property Rotate() As New RotateTransform
+
+    ''' <summary>
+    ''' Searches the bodies for one that matches the Predicate
+    ''' </summary>
+    Public Function FindGeometry(Match As Predicate(Of PhysicalGeometry)) As PhysicalGeometry
+        Return (From G In LGeometries Where Match(G)).FirstOrDefault
+    End Function
     
     ''' <summary>
     ''' Creates all the objects for the Farseer Physics Engine, and sets their properties
@@ -99,6 +116,8 @@ Public MustInherit Class PhysicalBody
     Protected Overridable Sub InitializeGeometries()
         For Each Geom In Geometries
             Geom.Box = Box
+            AddHandler Geom.Collide, AddressOf OnCollide
+            AddHandler Geom.Separate, AddressOf OnSeparate
             Geom.Initialize(Me)
         Next
     End Sub

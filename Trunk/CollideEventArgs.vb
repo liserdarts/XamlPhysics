@@ -16,9 +16,15 @@ Public Class CollideEventArgs
         Me.Manifold = Manifold
     End Sub
     
-    Public Property FixtureA As FarseerPhysics.Dynamics.Fixture
-    Public Property FixtureB As FarseerPhysics.Dynamics.Fixture
-    Public Property Manifold As FarseerPhysics.Dynamics.Contacts.Contact
+    Public Property GeometryA() As PhysicalGeometry
+    Public Property GeometryB() As PhysicalGeometry
+
+    <Obsolete("FixtureA is obsolete, use GeometryA instead.")> _
+    Public Property FixtureA() As FarseerPhysics.Dynamics.Fixture
+    <Obsolete("FixtureB is obsolete, use GeometryB instead.")> _
+    Public Property FixtureB() As FarseerPhysics.Dynamics.Fixture
+
+    Public Property Manifold() As FarseerPhysics.Dynamics.Contacts.Contact
 
     Public Property Cancel As Boolean
 End Class

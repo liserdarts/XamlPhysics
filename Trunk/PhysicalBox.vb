@@ -201,12 +201,37 @@ Public Class PhysicalBox
     ''' <summary>
     ''' Searches the elements for one that matches the Predicate
     ''' </summary>
+    <Obsolete("FindElement is obsolete, use FindBody instead.")> _
     Public Function FindElement(Match As Predicate(Of PhysicalBody)) As UIElement
         If Elements IsNot Nothing Then
             For Each PhysicalBody In Elements
                 If Match(PhysicalBody.Key) Then
                     Return PhysicalBody.Value
                 End If
+            Next
+        End If
+
+        Return Nothing
+    End Function
+    
+    ''' <summary>
+    ''' Searches the bodies for one that matches the Predicate
+    ''' </summary>
+    Public Function FindBody(Match As Predicate(Of PhysicalBody)) As PhysicalBody
+        If Bodies IsNot Nothing Then
+            Return (From B In Bodies Where Match(B)).FirstOrDefault
+        End If
+
+        Return Nothing
+    End Function
+    ''' <summary>
+    ''' Searches the bodies for one that has a geometry that matches the Predicate
+    ''' </summary>
+    Public Function FindGeometry(Match As Predicate(Of PhysicalGeometry)) As PhysicalGeometry
+        If Bodies IsNot Nothing Then
+            For Each Body In Bodies
+                Dim Geom = Body.FindGeometry(Match)
+                If Geom IsNot Nothing Then Return Geom
             Next
         End If
 
