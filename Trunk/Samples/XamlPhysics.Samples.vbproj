@@ -119,6 +119,9 @@
     <Compile Include="Controls.xaml.vb">
       <DependentUpon>Controls.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CollisionEvents.xaml.vb">
+      <DependentUpon>CollisionEvents.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FixedAngleJoint.xaml.vb">
       <DependentUpon>FixedAngleJoint.xaml</DependentUpon>
     </Compile>
@@ -176,6 +179,10 @@
     <Page Include="Controls.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CollisionEvents.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="FixedAngleJoint.xaml">
       <SubType>Designer</SubType>

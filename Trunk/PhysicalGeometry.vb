@@ -11,6 +11,11 @@ Public MustInherit Class PhysicalGeometry
     Event Collide(Sender As Object, E As CollideEventArgs)
     Protected Overridable Function OnCollide(FixtureA As FarseerPhysics.Dynamics.Fixture, FixtureB As FarseerPhysics.Dynamics.Fixture, Manifold As FarseerPhysics.Dynamics.Contacts.Contact) As Boolean
         Dim E As New CollideEventArgs(FixtureA, FixtureB, Manifold)
+        E.GeometryA = Me
+        E.GeometryB = Body.Box.FindGeometry(Function(G As PhysicalGeometry)(
+                        G.Fixture Is FixtureB
+                    ))
+
         RaiseEvent Collide(Me, E)
         Return Not E.Cancel
     End Function
@@ -18,6 +23,11 @@ Public MustInherit Class PhysicalGeometry
     Event Separate(Sender As Object, E As CollideEventArgs)
     Protected Overridable Sub OnSeparate(FixtureA As FarseerPhysics.Dynamics.Fixture, FixtureB As FarseerPhysics.Dynamics.Fixture)
         Dim E As New CollideEventArgs(FixtureA, FixtureB)
+        E.GeometryA = Me
+        E.GeometryB = Body.Box.FindGeometry(Function(G As PhysicalGeometry)(
+                        G.Fixture Is FixtureB
+                    ))
+
         RaiseEvent Separate(Me, E)
     End Sub
 
